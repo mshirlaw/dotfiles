@@ -1,0 +1,19 @@
+// vscode custom user settings 
+// @mshirlaw
+{
+    // editor specific settings
+    "editor.renderWhitespace": "all",
+    "editor.wordWrap": "on",
+    "editor.insertSpaces": false,
+    "editor.scrollBeyondLastLine": false,
+    "editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?",
+    // file associations
+    "files.associations": {
+        "*.tt": "html"
+    },
+    // IDE settings
+    "workbench.iconTheme": "vs-seti",
+    "workbench.welcome.enabled": false,
+    // perlcritic linter
+    "perlcritic.severity": "harsh"
+}

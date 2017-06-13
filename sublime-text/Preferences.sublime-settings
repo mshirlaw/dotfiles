@@ -1,0 +1,26 @@
+{
+	"caret_extra_bottom": 1,
+	"caret_extra_top": 1,
+	"caret_extra_width": 1,
+	"caret_style": "blink",
+	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
+	"draw_white_space": "all",
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"match_selection": false,
+	"scroll_past_end": false,
+	"show_definitions": false,
+	"show_file_icons": true,
+	"sidebar_row_padding_medium": true,
+	"sidebar_size_12": true,
+	"status_bar_brighter": true,
+	"tabs_small": true,
+	"theme": "Afterglow-blue.sublime-theme",
+	"tree_animation_enabled": true,
+	"word_wrap": true
+}
