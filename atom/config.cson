@@ -17,8 +17,6 @@
     showInvisibles: true
     tabLength: 4
     tabType: "hard"
-  "exception-reporting":
-    userId: "a9eb2794-c288-40ae-bdd2-64e0a793984b"
   linter: {}
   "linter-perlcritic": {}
   "linter-ui-default":
