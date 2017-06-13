@@ -1,0 +1,27 @@
+"*":
+  core:
+    customFileTypes:
+      "text.html.basic": [
+        "tt"
+      ]
+    disabledPackages: [
+      "whitespace"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "atom-dark-syntax"
+    ]
+  editor:
+    fontSize: 13
+    showInvisibles: true
+    tabLength: 4
+    tabType: "hard"
+  "exception-reporting":
+    userId: "a9eb2794-c288-40ae-bdd2-64e0a793984b"
+  linter: {}
+  "linter-perlcritic": {}
+  "linter-ui-default":
+    panelHeight: 69
+  welcome:
+    showOnStartup: false
