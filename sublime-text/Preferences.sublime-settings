@@ -46,6 +46,6 @@
 	"theme": "Afterglow-blue.sublime-theme",
 	"tree_animation_enabled": true,
 	"trim_automatic_white_space": false,
-	"word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?",
+	"word_separators": "./\\()\"'-:,.;<>~!#^&*|+=[]{}`~?",
 	"word_wrap": true
 }
