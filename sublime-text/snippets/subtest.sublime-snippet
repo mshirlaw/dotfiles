@@ -1,0 +1,22 @@
+<snippet>
+    <content><![CDATA[
+=head2 Testing - $1
+
+Confirms that $2
+
+=head3 AUTHOR
+
+Matt Shirlaw
+
+=cut
+
+subtest 'TESTING ${3:module::function}' => sub {
+	$0
+};
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>st</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.perl</scope>
+    <description>Subtest</description>
+</snippet>

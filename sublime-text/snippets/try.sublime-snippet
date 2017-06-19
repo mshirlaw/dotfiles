@@ -1,0 +1,17 @@
+<snippet>
+	<content>
+<![CDATA[
+my @cleanup = ();
+try {
+	$0
+} catch {
+	fail TestUtil::get_error_string(\$_);
+} finally {
+	TestUtil::cleanup_irx_objects(\\@cleanup);	
+};
+]]>
+	</content>
+	<tabTrigger>tcf</tabTrigger>
+	<scope>source.perl</scope>
+	<description>Try Catch Finally</description>
+</snippet>
