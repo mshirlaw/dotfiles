@@ -1,10 +1,33 @@
 {
+	"binary_file_patterns":
+	[
+		"cdn_assets/js/gadget.js",
+		"google-geo*",
+		"htdocs/charts",
+		"htdocs/css",
+		"htdocs/tinymce",
+		"htdocs/ui_lib",
+		"lib/build",
+		"lib/dist",
+		"public/javascripts/jquery.js",
+		"pwstrength-bootstrap*",
+		"*.csv",
+		"*.angular.bundle.js.map",
+		"*.angular.bundle.js"
+		
+	],
 	"caret_extra_bottom": 1,
 	"caret_extra_top": 1,
 	"caret_extra_width": 1,
 	"caret_style": "blink",
 	"color_scheme": "Packages/Theme - Afterglow/Afterglow.tmTheme",
 	"draw_white_space": "all",
+	"folder_exclude_patterns":
+	[
+		".git",
+		".karma-tmp",
+		".sass-cache"
+	],
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -22,5 +45,7 @@
 	"tabs_small": true,
 	"theme": "Afterglow-blue.sublime-theme",
 	"tree_animation_enabled": true,
+	"trim_automatic_white_space": false,
+	"word_separators": "./\\()\"'-:,.;<>~!@#%^&*|+=[]{}`~?",
 	"word_wrap": true
 }
