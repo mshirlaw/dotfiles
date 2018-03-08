@@ -1,0 +1,21 @@
+# author mshirlaw
+# config for accelo project
+
+# ignores
+--ignore-dir=node_modules
+--ignore-dir=lib/build
+--ignore-dir=affinity/htdocs/dist
+--ignore-dir=affinity/htdocs/charts
+--ignore-dir=affinitylive_api/builds
+--ignore-dir=affinity/htdocs/vendor
+--ignore-dir=affinity/htdocs/ui_lib
+--ignore-dir=affinity/htdocs/tinymce
+--ignore-file=is:closure.js
+
+# ack settings
+--color
+--sort-files
+
+# custom types
+--type-add=css=scss
+--type-add=html=tt

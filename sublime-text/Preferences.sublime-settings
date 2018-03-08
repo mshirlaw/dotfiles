@@ -14,7 +14,6 @@
 		"*.csv",
 		"*.angular.bundle.js.map",
 		"*.angular.bundle.js"
-		
 	],
 	"caret_extra_bottom": 1,
 	"caret_extra_top": 1,
@@ -26,8 +25,10 @@
 	[
 		".git",
 		".karma-tmp",
-		".sass-cache"
+		".sass-cache",
+		"node_modules"
 	],
+	"font_size": 12,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -36,6 +37,13 @@
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"match_selection": false,
+	"perltidy_cmd":
+	[
+		"/usr/local/bin/perltidy"
+	],
+	"perltidy_options":
+	[
+	],
 	"scroll_past_end": false,
 	"show_definitions": false,
 	"show_file_icons": true,
