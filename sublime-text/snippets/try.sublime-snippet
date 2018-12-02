@@ -4,9 +4,11 @@
 my @cleanup = ();
 try {
 	$0
-} catch {
+} 
+catch {
 	fail TestUtil::get_error_string(\$_);
-} finally {
+} 
+finally {
 	TestUtil::cleanup_irx_objects(\\@cleanup);
 };
 ]]>
