@@ -7,7 +7,7 @@ try {
 } catch {
 	fail TestUtil::get_error_string(\$_);
 } finally {
-	TestUtil::cleanup_irx_objects(\\@cleanup);	
+	TestUtil::cleanup_irx_objects(\\@cleanup);
 };
 ]]>
 	</content>
