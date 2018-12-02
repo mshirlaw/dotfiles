@@ -26,3 +26,7 @@ autocmd BufEnter * :syntax sync fromstart
 " allow autocomplete when searching files in directory
 set wildmenu
 
+" some simple snippets
+au filetype perl :iabbrev dmp use Data::Dumper;<CR>warn Dumper 'debug';
+au filetype perl :iabbrev tcf try {<CR>}<CR>catch {<CR>}<CR>finally {<CR>};
+au filetype javascript :iabbrev log console.log('debug');
