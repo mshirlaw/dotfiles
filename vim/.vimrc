@@ -1,8 +1,11 @@
 " mshirlaw
-" 8 March 2018
+" 2 December 2018
 
-syntax on
-colorscheme afterglow
+syntax enable
+
+" colours
+" colorscheme afterglow
+colorscheme skyhawk
 
 set number
 set autoindent
@@ -14,7 +17,12 @@ set noeol
 
 set path=$PWD/**
 
+" set .tt file type to html
 au BufNewFile,BufRead *.tt set filetype=html
 
+" syntax highlighting from the start always
+autocmd BufEnter * :syntax sync fromstart
+
+" allow autocomplete when searching files in directory
 set wildmenu
 
