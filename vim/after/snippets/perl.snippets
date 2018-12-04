@@ -1,0 +1,52 @@
+# try/catch block for unit testing
+snippet tcf
+
+	my @cleanup;
+	try {
+		${0}
+	}
+	catch {
+		fail TestUtil::get_error_string($_);
+	}
+	finally {
+		TestUtil::cleanup_irx_objects(\@cleanup);
+	};
+
+# subroutine
+snippet sub
+
+	sub ${1:function_name}
+	{
+		${0}
+	}
+
+# foreach loop
+snippet for
+	foreach my $${1:x} (@${2:array}) {
+		${0}
+	}
+
+# data dumper
+snippet dmp
+	use Data::Dumper;
+	warn Dumper ${1}
+
+# subtest 
+snippet subtest
+	subtest '${1:subtest}' => sub {
+		${2}
+	};
+
+# given block
+snippet given
+	subtest 'GIVEN ${1:given}' => sub {
+		${0}
+	};
+
+# when block
+snippet when
+	subtest 'WHEN ${1:when}' => sub {
+		${0}
+	};
+
+

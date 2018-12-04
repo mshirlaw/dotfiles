@@ -1,6 +1,25 @@
 " mshirlaw
-" 2 December 2018
+" 3 December 2018
 
+" required by vundle package manager
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/after/
+
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+call vundle#end()
+
+filetype plugin indent on
+
+" custom settings
 syntax enable
 
 " colours
@@ -28,15 +47,29 @@ autocmd BufEnter * :syntax sync fromstart
 " allow autocomplete when searching files in directory
 set wildmenu
 
-" some simple snippets
-au filetype perl :iabbrev dmp use Data::Dumper;<CR>warn Dumper;<LEFT>
-au filetype perl :iabbrev tcf try {<CR>}<CR>catch {<CR>}<CR>finally {<CR>};
-au filetype javascript :iabbrev log console.log('debug');
+" set custom leader key
+let mapleader = ","
 
-" git blame via F4
-vnoremap <F4> :<C-U>execute ":!git blame -L " . line("'<") . "," . line("'>") . " " . "%"<CR>
+" visual mode key mappings
+
+" git blame (selected lines)
+vnoremap <leader>b :<C-U>execute ":!git blame -L " . line("'<") . "," . line("'>") . " " . "%"<CR>
+
+" normal mode key mappings
+
+" git blame (single line)
+nnoremap <leader>b :<C-U>execute ":!git blame -L " . line(".") . "," . line(".") . " " . "%"<CR>
+"ctrl-p
+nnoremap <leader>p :CtrlP<CR>
+" find
+nnoremap <leader>f :Ack! 
+" perltidy whole file
+nnoremap <leader>t :%!perltidy<CR>
+" perlcritic
+nnoremap <leader>c <ESC>:compiler perlcritic<bar>:make<CR><bar>:cope<CR>
 
 " ctrl-p
 let g:ctrlp_max_files=0
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'ack %s -l --nocolor -g ""']
+
 
