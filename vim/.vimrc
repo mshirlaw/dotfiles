@@ -1,5 +1,5 @@
 " mshirlaw
-" 3 December 2018
+" 8 December 2018
 
 " required by vundle package manager
 set nocompatible
@@ -17,18 +17,21 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 call vundle#end()
 
-filetype plugin indent on
+"filetype plugin indent on
+"filetype plugin indent off
+filetype plugin on
 
 " custom settings
 syntax enable
 
 " colours
-" colorscheme afterglow
 colorscheme skyhawk
 
 set number
 set autoindent
-set ts=4 sw=4
+set nosmartindent
+set nocindent
+set ts=4 sw=4 
 set noexpandtab
 set mouse=a
 set binary
@@ -37,6 +40,9 @@ set incsearch
 set ignorecase
 set cursorline
 set path=$PWD/**
+set backspace=indent,eol,start
+set wildmenu
+set redrawtime=10000
 
 " set .tt file type to html
 au BufNewFile,BufRead *.tt set filetype=html
@@ -44,32 +50,22 @@ au BufNewFile,BufRead *.tt set filetype=html
 " syntax highlighting from the start always
 autocmd BufEnter * :syntax sync fromstart
 
-" allow autocomplete when searching files in directory
-set wildmenu
-
 " set custom leader key
 let mapleader = ","
 
-" visual mode key mappings
-
-" git blame (selected lines)
+" visual mode key mappings, git blame (selected lines) format as json (selected lines), perltidy selection
 vnoremap <leader>b :<C-U>execute ":!git blame -L " . line("'<") . "," . line("'>") . " " . "%"<CR>
+vnoremap <leader>j :!python -m json.tool<CR>
+vnoremap <leader>t :!perltidy<CR>
 
-" normal mode key mappings
-
-" git blame (single line)
+" normal mode key mappings, git blame (single line), ctrl-p, find, perltidy whole file, perlcritic, format as json (whole file)
 nnoremap <leader>b :<C-U>execute ":!git blame -L " . line(".") . "," . line(".") . " " . "%"<CR>
-"ctrl-p
 nnoremap <leader>p :CtrlP<CR>
-" find
 nnoremap <leader>f :Ack! 
-" perltidy whole file
 nnoremap <leader>t :%!perltidy<CR>
-" perlcritic
 nnoremap <leader>c <ESC>:compiler perlcritic<bar>:make<CR><bar>:cope<CR>
+nnoremap <leader>j :%!python -m json.tool<CR>
 
 " ctrl-p
 let g:ctrlp_max_files=0
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'ack %s -l --nocolor -g ""']
-
 
