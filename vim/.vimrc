@@ -1,5 +1,5 @@
 " mshirlaw
-" 8 December 2018
+" 16 December 2018
 
 " required by vundle package manager
 set nocompatible
@@ -17,8 +17,6 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 call vundle#end()
 
-"filetype plugin indent on
-"filetype plugin indent off
 filetype plugin on
 
 " custom settings
@@ -26,6 +24,7 @@ syntax enable
 
 " colours
 colorscheme skyhawk
+hi Search cterm=bold gui=bold
 
 set number
 set autoindent
@@ -36,7 +35,7 @@ set noexpandtab
 set mouse=a
 set binary
 set noeol
-set incsearch
+set hlsearch incsearch
 set ignorecase
 set cursorline
 set path=$PWD/**
@@ -54,18 +53,24 @@ autocmd BufEnter * :syntax sync fromstart
 let mapleader = ","
 
 " visual mode key mappings, git blame (selected lines) format as json (selected lines), perltidy selection
-vnoremap <leader>b :<C-U>execute ":!git blame -L " . line("'<") . "," . line("'>") . " " . "%"<CR>
-vnoremap <leader>j :!python -m json.tool<CR>
-vnoremap <leader>t :!perltidy<CR>
+vnoremap <leader>b :<c-u>execute ":!git blame -L " . line("'<") . "," . line("'>") . " " . "%"<cr>
+vnoremap <leader>j :!python -m json.tool<cr>
+vnoremap <leader>t :!perltidy<cr>
 
 " normal mode key mappings, git blame (single line), ctrl-p, find, perltidy whole file, perlcritic, format as json (whole file)
-nnoremap <leader>b :<C-U>execute ":!git blame -L " . line(".") . "," . line(".") . " " . "%"<CR>
-nnoremap <leader>p :CtrlP<CR>
+nnoremap <leader>b :<c-u>execute ":!git blame -L " . line(".") . "," . line(".") . " " . "%"<cr>
+nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>f :Ack! 
-nnoremap <leader>t :%!perltidy<CR>
-nnoremap <leader>c <ESC>:compiler perlcritic<bar>:make<CR><bar>:cope<CR>
-nnoremap <leader>j :%!python -m json.tool<CR>
+nnoremap <leader>t :%!perltidy<cr>
+nnoremap <leader>c <esc>:compiler perlcritic<bar>:make<cr><bar>:cope<cr>
+nnoremap <leader>j :%!python -m json.tool<cr>
+nnoremap <leader>vrc :vsplit $MYVIMRC<cr>
+nnoremap <leader>src :source $MYVIMRC<cr>
+
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
 
 " ctrl-p
 let g:ctrlp_max_files=0
-
