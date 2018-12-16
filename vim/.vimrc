@@ -86,3 +86,11 @@ augroup affinity_perl_compiler
 	nnoremap <leader>cp :<c-u>execute ":!ssh vbox -t \"perl -I /data/affinitylive/modules -c /data/affinitylive/\"" . g:affinity_relative_path<cr>
 augroup END
 
+" function to prepend commit message with ticket number to commit
+
+function! PrependTicketNumber()
+	execute "normal! /AFFINITY-\<cr>veeeyggpA #time "
+	:startinsert!
+endfunction
+
+nnoremap <leader>a :call PrependTicketNumber()<cr>
