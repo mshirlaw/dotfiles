@@ -62,10 +62,10 @@ nnoremap <leader>b :<c-u>execute ":!git blame -L " . line(".") . "," . line(".")
 nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>f :Ack! 
 nnoremap <leader>t :%!perltidy<cr>
-nnoremap <leader>c <esc>:compiler perlcritic<bar>:make<cr><bar>:cope<cr>
+nnoremap <leader>cr <esc>:compiler perlcritic<bar>:make<cr><bar>:cope<cr>
 nnoremap <leader>j :%!python -m json.tool<cr>
-nnoremap <leader>vrc :vsplit $MYVIMRC<cr>
-nnoremap <leader>src :source $MYVIMRC<cr>
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 nnoremap <left> <nop>
 nnoremap <right> <nop>
@@ -74,3 +74,15 @@ nnoremap <down> <nop>
 
 " ctrl-p
 let g:ctrlp_max_files=0
+
+" build compile perl script on vbox
+
+let g:affinity_working_directory="/Users/mshirlaw/Documents/accelo/affinitylive/"
+
+augroup affinity_perl_compiler
+	autocmd!
+	autocmd BufEnter * :let g:affinity_absolute_path = expand("%:p")
+	autocmd BufEnter * :let g:affinity_relative_path = substitute(g:affinity_absolute_path, g:affinity_working_directory,"","")
+	nnoremap <leader>cp :<c-u>execute ":!ssh vbox -t \"perl -I /data/affinitylive/modules -c /data/affinitylive/\"" . g:affinity_relative_path<cr>
+augroup END
+
