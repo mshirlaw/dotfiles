@@ -15,6 +15,7 @@ Plugin 'mileszs/ack.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
+Plugin 'mshirlaw/jira-prepend'
 call vundle#end()
 
 filetype plugin on
@@ -72,8 +73,10 @@ nnoremap <right> <nop>
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 
-" ctrl-p
+" plugin globals
 let g:ctrlp_max_files=0
+let g:jira_prepend_ticket_pattern="AFFINITY"
+let g:jira_prepend_custom_message="#time "
 
 " build compile perl script on vbox
 
@@ -86,11 +89,3 @@ augroup affinity_perl_compiler
 	nnoremap <leader>cp :<c-u>execute ":!ssh vbox -t \"perl -I /data/affinitylive/modules -c /data/affinitylive/\"" . g:affinity_relative_path<cr>
 augroup END
 
-" function to prepend commit message with ticket number to commit
-
-function! PrependTicketNumber()
-	execute "normal! /AFFINITY-\<cr>veeeyggpA #time "
-	:startinsert!
-endfunction
-
-nnoremap <leader>a :call PrependTicketNumber()<cr>
