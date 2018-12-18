@@ -45,10 +45,16 @@ set wildmenu
 set redrawtime=10000
 
 " set .tt file type to html
-au BufNewFile,BufRead *.tt set filetype=html
+augroup tt_as_html
+	autocmd!
+	autocmd BufNewFile,BufRead *.tt set filetype=html
+augroup END
 
 " syntax highlighting from the start always
-autocmd BufEnter * :syntax sync fromstart
+augroup syntax_highlight
+    autocmd!
+	autocmd BufEnter * :syntax sync fromstart
+augroup END
 
 " set custom leader key
 let mapleader = ","
@@ -75,6 +81,12 @@ nnoremap <down> <nop>
 
 " plugin globals
 let g:ctrlp_max_files=0
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ctrlp_use_caching = 0
+endif
 let g:jira_prepend_ticket_pattern="AFFINITY"
 let g:jira_prepend_custom_message="#time "
 
@@ -88,4 +100,3 @@ augroup affinity_perl_compiler
 	autocmd BufEnter * :let g:affinity_relative_path = substitute(g:affinity_absolute_path, g:affinity_working_directory,"","")
 	nnoremap <leader>cp :<c-u>execute ":!ssh vbox -t \"perl -I /data/affinitylive/modules -c /data/affinitylive/\"" . g:affinity_relative_path<cr>
 augroup END
-
