@@ -28,9 +28,11 @@ colorscheme skyhawk
 hi Search cterm=bold gui=bold
 
 set number
+set relativenumber
 set autoindent
 set nosmartindent
 set nocindent
+set tm=500
 set ts=4 sw=4 
 set noexpandtab
 set mouse=a
@@ -52,7 +54,7 @@ augroup END
 
 " syntax highlighting from the start always
 augroup syntax_highlight
-    autocmd!
+	autocmd!
 	autocmd BufEnter * :syntax sync fromstart
 augroup END
 
@@ -60,24 +62,29 @@ augroup END
 let mapleader = ","
 
 " visual mode key mappings, git blame (selected lines) format as json (selected lines), perltidy selection
-vnoremap <leader>b :<c-u>execute ":!git blame -L " . line("'<") . "," . line("'>") . " " . "%"<cr>
-vnoremap <leader>j :!python -m json.tool<cr>
-vnoremap <leader>t :!perltidy<cr>
+vnoremap <leader>td :!perltidy<cr>
+vnoremap <leader>bl :<c-u>execute ":!clear && git blame -L " . line("'<") . "," . line("'>") . " " . "%"<cr>
+vnoremap <leader>fj :!python -m json.tool<cr>
 
 " normal mode key mappings, git blame (single line), ctrl-p, find, perltidy whole file, perlcritic, format as json (whole file)
-nnoremap <leader>b :<c-u>execute ":!git blame -L " . line(".") . "," . line(".") . " " . "%"<cr>
-nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>f :Ack! 
-nnoremap <leader>t :%!perltidy<cr>
+nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>td :%!perltidy<cr>
+nnoremap <leader>bl :<c-u>execute ":!clear && git blame -L " . line(".") . "," . line(".") . " " . "%"<cr>
 nnoremap <leader>cr <esc>:compiler perlcritic<bar>:make<cr><bar>:cope<cr>
-nnoremap <leader>j :%!python -m json.tool<cr>
+nnoremap <leader>fj :%!python -m json.tool<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
 nnoremap <left> <nop>
-nnoremap <right> <nop>
-nnoremap <up> <nop>
 nnoremap <down> <nop>
+nnoremap <up> <nop>
+nnoremap <right> <nop>
 
 " plugin globals
 let g:ctrlp_max_files=0
@@ -90,7 +97,7 @@ endif
 let g:jira_prepend_ticket_pattern="AFFINITY"
 let g:jira_prepend_custom_message="#time "
 
-" build compile perl script on vbox
+" experimental for moving into a plugin
 
 let g:affinity_working_directory="/Users/mshirlaw/Documents/accelo/affinitylive/"
 
@@ -98,5 +105,22 @@ augroup affinity_perl_compiler
 	autocmd!
 	autocmd BufEnter * :let g:affinity_absolute_path = expand("%:p")
 	autocmd BufEnter * :let g:affinity_relative_path = substitute(g:affinity_absolute_path, g:affinity_working_directory,"","")
-	nnoremap <leader>cp :<c-u>execute ":!ssh vbox -t \"perl -I /data/affinitylive/modules -c /data/affinitylive/\"" . g:affinity_relative_path<cr>
+	nnoremap <leader>co :<c-u>execute ":!clear && echo \"Compiling...\" && ssh vbox -t \"perl -I /data/affinitylive/modules -c /data/affinitylive/\"" . g:affinity_relative_path<cr>
 augroup END
+
+function! s:ConvertSearch(search)
+	let g:escaped_string = substitute(a:search, '\$', '\\\\\\$', 'g')
+	let g:escaped_string_two = substitute(g:escaped_string, '#', '\\\\\\#', 'g')
+	let g:escaped_string_three = substitute(g:escaped_string_two, '%', '\\\\\\%', 'g')
+	let g:escaped_string_four = substitute(g:escaped_string_three, '(', '\\\\\\(', 'g')
+	let g:escaped_string_five = substitute(g:escaped_string_four, ')', '\\\\\\)', 'g')
+	let g:escaped_string_six = substitute(g:escaped_string_five, '{', '\\\\\\{', 'g')
+	let g:escaped_string_seven = substitute(g:escaped_string_six, '}', '\\\\\\}', 'g')
+	let g:escaped_string_eight = escape(g:escaped_string_seven, "'")
+	execute "Ack! " . escape(g:escaped_string_eight, ' /=,>@')
+	"echom escape(g:escaped_string_eight, ' /=')
+	return 1
+endfunction
+
+command! -nargs=1 Search call s:ConvertSearch(<q-args>)
+nnoremap <leader>s :Search! 
