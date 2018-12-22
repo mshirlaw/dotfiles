@@ -15,7 +15,10 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'mshirlaw/jira-prepend'
+Plugin 'mshirlaw/remote-compile'
 Plugin 'junegunn/fzf.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 call vundle#end()
 
 filetype plugin on
@@ -75,6 +78,7 @@ nnoremap <leader>ag :Ag<cr>
 nnoremap <leader>td :%!perltidy<cr>
 nnoremap <leader>bl :<c-u>execute ":!clear && git blame -L " . line(".") . "," . line(".") . " " . "%"<cr>
 nnoremap <leader>cr <esc>:compiler perlcritic<bar>:make<cr><bar>:cope<cr>
+nnoremap <leader>co :RemoteCompile<cr>
 nnoremap <leader>js :%!python -m json.tool<cr>
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -93,6 +97,7 @@ nnoremap <right> <nop>
 
 let g:jira_prepend_ticket_pattern="AFFINITY"
 let g:jira_prepend_custom_message="#time "
+let g:remote_compile_project_dir="/Users/mshirlaw/Documents/accelo/affinitylive/"
 
 let g:fzf_layout = { 'down': '~20%' }
 let g:fzf_colors = {
@@ -110,14 +115,4 @@ let g:fzf_colors = {
 	\ 'spinner': ['fg', 'Label'],
 	\ 'header':  ['fg', 'Comment'] }
 
-" experimental for moving into a plugin
-
-let g:affinity_working_directory="/Users/mshirlaw/Documents/accelo/affinitylive/"
-
-augroup affinity_perl_compiler
-	autocmd!
-	autocmd BufEnter * :let g:affinity_absolute_path = expand("%:p")
-	autocmd BufEnter * :let g:affinity_relative_path = substitute(g:affinity_absolute_path, g:affinity_working_directory,"","")
-	nnoremap <leader>co :<c-u>execute ":!clear && echo \"Compiling...\" && ssh vbox -t \"perl -I /data/affinitylive/modules -c /data/affinitylive/\"" . g:affinity_relative_path<cr>
-augroup END
-
+let g:airline_theme='tomorrow'
