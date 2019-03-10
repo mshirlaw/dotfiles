@@ -1,5 +1,5 @@
 " mshirlaw
-" 22 December 2018
+" 10 March 2019
 
 " required by vundle package manager
 set nocompatible
@@ -8,7 +8,6 @@ filetype off
 if isdirectory($HOME . "/Documents/accelo/affinitylive")
 	cd $HOME/Documents/accelo/affinitylive
 endif
-
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/after/
