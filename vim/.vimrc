@@ -5,12 +5,18 @@
 set nocompatible
 filetype off
 
+if isdirectory($HOME . "/Documents/accelo/affinitylive")
+	cd $HOME/Documents/accelo/affinitylive
+endif
+
+
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/after/
 set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -19,6 +25,7 @@ Plugin 'mshirlaw/remote-compile'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'tpope/vim-fugitive'
 call vundle#end()
 
 filetype plugin on
@@ -51,6 +58,9 @@ set wildmenu
 set redrawtime=10000
 set laststatus=2
 
+set wrap!
+set hidden
+
 " set .tt file type to html
 augroup tt_as_html
 	autocmd!
@@ -63,6 +73,11 @@ augroup syntax_highlight
 	autocmd BufEnter * :syntax sync fromstart
 augroup END
 
+" use relative line numbers for NERDTree
+augroup nerd_tree
+	autocmd FileType nerdtree setlocal relativenumber
+augroup END
+
 " set custom leader key
 let mapleader = ","
 
@@ -72,7 +87,7 @@ vnoremap <leader>bl :<c-u>execute ":!clear && git blame -L " . line("'<") . "," 
 vnoremap <leader>js :!python -m json.tool<cr>
 
 " normal mode key mappings, git blame (single line), ctrl-p, find, perltidy whole file, perlcritic, format as json (whole file)
-nnoremap <leader>fz :Files<cr>
+nnoremap <leader>fzf :Files<cr>
 nnoremap <leader>bf :Buffers<cr>
 nnoremap <leader>ag :Ag<cr>
 nnoremap <leader>td :%!perltidy<cr>
@@ -80,7 +95,7 @@ nnoremap <leader>bl :<c-u>execute ":!clear && git blame -L " . line(".") . "," .
 nnoremap <leader>cr <esc>:compiler perlcritic<bar>:make<cr><bar>:cope<cr>
 nnoremap <leader>co :RemoteCompile<cr>
 nnoremap <leader>js :%!python -m json.tool<cr>
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 nnoremap <c-h> <c-w>h
@@ -93,7 +108,11 @@ nnoremap <down> <nop>
 nnoremap <up> <nop>
 nnoremap <right> <nop>
 
+map <C-n> :NERDTreeToggle<CR>
+
 " plugin globals
+
+let NERDTreeShowLineNumbers=1
 
 let g:jira_prepend_ticket_pattern="AFFINITY"
 let g:jira_prepend_custom_message="#time "
