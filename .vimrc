@@ -1,5 +1,5 @@
 " mshirlaw
-" 10 March 2019
+" 2 May 2019
 
 " required by vundle package manager
 set nocompatible
@@ -43,7 +43,8 @@ set nosmartindent
 set nocindent
 set ts=4 sw=4 
 
-set noexpandtab
+set softtabstop=0 noexpandtab
+
 set mouse=a
 set binary
 set noeol
@@ -59,6 +60,7 @@ set laststatus=2
 
 set wrap!
 set hidden
+set tags=tags
 
 " set .tt file type to html
 augroup tt_as_html
@@ -82,17 +84,14 @@ let mapleader = ","
 
 " visual mode key mappings, git blame (selected lines) format as json (selected lines), perltidy selection
 vnoremap <leader>td :!perltidy<cr>
-vnoremap <leader>bl :<c-u>execute ":!clear && git blame -L " . line("'<") . "," . line("'>") . " " . "%"<cr>
 vnoremap <leader>js :!python -m json.tool<cr>
 
 " normal mode key mappings, git blame (single line), ctrl-p, find, perltidy whole file, perlcritic, format as json (whole file)
-nnoremap <leader>fzf :Files<cr>
-nnoremap <leader>bf :Buffers<cr>
+nnoremap <leader>ff :Files<cr>
+nnoremap <leader>bb :Buffers<cr>
 nnoremap <leader>ag :Ag<cr>
 nnoremap <leader>td :%!perltidy<cr>
-nnoremap <leader>bl :<c-u>execute ":!clear && git blame -L " . line(".") . "," . line(".") . " " . "%"<cr>
 nnoremap <leader>cr <esc>:compiler perlcritic<bar>:make<cr><bar>:cope<cr>
-nnoremap <leader>co :RemoteCompile<cr>
 nnoremap <leader>js :%!python -m json.tool<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -102,16 +101,19 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-nnoremap <left> <nop>
-nnoremap <down> <nop>
-nnoremap <up> <nop>
-nnoremap <right> <nop>
+" nnoremap <left> <nop>
+" nnoremap <down> <nop>
+" nnoremap <up> <nop>
+" nnoremap <right> <nop>
 
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <c-]> :execute "tjump " . expand("<cword>")<cr>
+
+map <c-n> :NERDTreeToggle<cr>
 
 " plugin globals
 
 let NERDTreeShowLineNumbers=1
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 let g:jira_prepend_ticket_pattern="AFFINITY"
 let g:jira_prepend_custom_message="#time "

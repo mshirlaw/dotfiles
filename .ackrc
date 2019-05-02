@@ -2,11 +2,12 @@
 # config for accelo project
 
 # ignores
+--ignore-dir=.karma-tmp
+--ignore-dir=bower_components
 --ignore-dir=node_modules
 --ignore-dir=lib/build
 --ignore-dir=affinity/htdocs/dist
 --ignore-dir=affinity/htdocs/charts
---ignore-dir=affinitylive_api/builds
 --ignore-dir=affinity/htdocs/vendor
 --ignore-dir=affinity/htdocs/ui_lib
 --ignore-dir=affinity/htdocs/tinymce
@@ -15,7 +16,14 @@
 # ack settings
 --color
 --sort-files
+--literal
 
 # custom types
 --type-add=css=scss
 --type-add=html=tt
+--type-add=perl=t
+
+# perl types
+--type-set=perlm:ext:pm
+--type-set=perll:ext:pl
+--type-set=perlt:ext:t
