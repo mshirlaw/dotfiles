@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DBPATH=~/Dropbox/github/editor-settings
+DBPATH=~/Dropbox/github/dotfiles
 
 cp -r ~/.vim/ $DBPATH/vim/
 cp ~/.vimrc $DBPATH/.vimrc
