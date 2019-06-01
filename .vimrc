@@ -1,5 +1,5 @@
 " mshirlaw
-" 2 May 2019
+" 1 June 2019
 
 " required by vundle package manager
 set nocompatible
