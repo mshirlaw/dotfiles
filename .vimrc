@@ -25,6 +25,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
+Plugin 'w0rp/ale'
 call vundle#end()
 
 filetype plugin on
@@ -136,3 +137,18 @@ let g:fzf_colors = {
 	\ 'header':  ['fg', 'Comment'] }
 
 let g:airline_theme='tomorrow'
+
+" ale linter
+
+let g:airline#extensions#ale#enabled=1
+
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '>>'
+let g:ale_set_highlights=1
+
+let g:ale_linters_explicit=1
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'perl' : ['perlcritic'],
+\}
+
