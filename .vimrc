@@ -8,7 +8,6 @@ cd .
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/after/
-set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -18,6 +17,7 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'mshirlaw/jira-prepend'
 Plugin 'mshirlaw/remote-compile'
+Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -89,13 +89,13 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " set custom leader key
 let mapleader = ","
 
-" visual mode key mappings, git blame (selected lines) format as json (selected lines), perltidy selection
+" visual mode key mappings, perltidy selection, format as json, highlight last selection after indent
 vnoremap <leader>td :!perltidy<cr>
 vnoremap <leader>js :!python -m json.tool<cr>
 vnoremap < <gv
 vnoremap > >gv
 
-" normal mode key mappings, git blame (single line), ctrl-p, find, perltidy whole file, perlcritic, format as json (whole file)
+" normal mode key mappings
 nnoremap <leader>ff :Files<cr>
 nnoremap <leader>bb :Buffers<cr>
 nnoremap <leader>ag :Ag<cr>
@@ -119,7 +119,7 @@ map <c-n> :NERDTreeToggle<cr>
 
 " nerd tree plugin globals
 let NERDTreeShowLineNumbers=1
-let g:NERDTreeNodeDelimiter = "\u00a0"
+let g:NERDTreeNodeDelimiter="\u00a0"
 
 " jira prepend plugin globals
 let g:jira_prepend_ticket_pattern="AFFINITY"
