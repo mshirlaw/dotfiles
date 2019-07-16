@@ -1,13 +1,10 @@
 " mshirlaw
-" 1 June 2019
+" 16 July 2019
 
-" required by vundle package manager
 set nocompatible
 filetype off
 
-if isdirectory($HOME . "/Documents/accelo/affinitylive")
-	cd $HOME/Documents/accelo/affinitylive
-endif
+cd .
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/after/
@@ -24,6 +21,8 @@ Plugin 'mshirlaw/remote-compile'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-fugitive'
 Plugin 'w0rp/ale'
 call vundle#end()
@@ -31,11 +30,13 @@ call vundle#end()
 filetype plugin on
 
 " custom settings
+
 syntax enable
 
-" colours
 colorscheme skyhawk
+
 hi Search cterm=bold gui=bold
+hi link xmlEndTag xmlTag
 
 set number
 set relativenumber
@@ -80,12 +81,19 @@ augroup nerd_tree
 	autocmd FileType nerdtree setlocal relativenumber
 augroup END
 
+" cursor shape
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
 " set custom leader key
 let mapleader = ","
 
 " visual mode key mappings, git blame (selected lines) format as json (selected lines), perltidy selection
 vnoremap <leader>td :!perltidy<cr>
 vnoremap <leader>js :!python -m json.tool<cr>
+vnoremap < <gv
+vnoremap > >gv
 
 " normal mode key mappings, git blame (single line), ctrl-p, find, perltidy whole file, perlcritic, format as json (whole file)
 nnoremap <leader>ff :Files<cr>
@@ -96,30 +104,31 @@ nnoremap <leader>cr <esc>:compiler perlcritic<bar>:make<cr><bar>:cope<cr>
 nnoremap <leader>js :%!python -m json.tool<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-" nnoremap <left> <nop>
-" nnoremap <down> <nop>
-" nnoremap <up> <nop>
-" nnoremap <right> <nop>
+" alternative buffer switching
+nnoremap <space><right> :bn<cr>
+nnoremap <space><left> :bp<cr>
+nnoremap <space><down> :bd<cr>
 
 nnoremap <c-]> :execute "tjump " . expand("<cword>")<cr>
-
 map <c-n> :NERDTreeToggle<cr>
 
-" plugin globals
-
+" nerd tree plugin globals
 let NERDTreeShowLineNumbers=1
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
+" jira prepend plugin globals
 let g:jira_prepend_ticket_pattern="AFFINITY"
 let g:jira_prepend_custom_message="#time "
+
+" remote compile plugin globals
 let g:remote_compile_project_dir="/Users/mshirlaw/Documents/accelo/affinitylive/"
 
+" FZF plugin globals
 let g:fzf_layout = { 'down': '~20%' }
 let g:fzf_colors = {
 	\ 'fg':      ['fg', 'Normal'],
@@ -136,19 +145,16 @@ let g:fzf_colors = {
 	\ 'spinner': ['fg', 'Label'],
 	\ 'header':  ['fg', 'Comment'] }
 
+" airline plugin globals
 let g:airline_theme='tomorrow'
-
-" ale linter
-
 let g:airline#extensions#ale#enabled=1
 
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '>>'
+" ale linter plugin globals
+let g:ale_sign_error='>>'
+let g:ale_sign_warning='>>'
 let g:ale_set_highlights=1
-
 let g:ale_linters_explicit=1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'perl' : ['perlcritic'],
 \}
-
