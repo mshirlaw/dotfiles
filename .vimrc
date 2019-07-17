@@ -14,7 +14,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
 Plugin 'mshirlaw/jira-prepend'
 Plugin 'mshirlaw/remote-compile'
 Plugin 'junegunn/fzf'
@@ -104,6 +104,9 @@ nnoremap <leader>cr <esc>:compiler perlcritic<bar>:make<cr><bar>:cope<cr>
 nnoremap <leader>js :%!python -m json.tool<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>ll :lnext<cr>
+nnoremap <leader>lp :lprev<cr>
+
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k

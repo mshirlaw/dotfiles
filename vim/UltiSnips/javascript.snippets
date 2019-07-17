@@ -1,0 +1,97 @@
+# Debug
+snippet cl "console.log"
+console.log(${0:'test'})
+endsnippet
+
+# Functions
+snippet func "function"
+function ${1:helloWorld}(${2:params}) {
+	${0}
+}
+endsnippet
+
+snippet async "async function"
+async function ${1:functionName}(${2:params}) {
+	${0:// body...}
+}
+endsnippet
+
+snippet afe "arrow function expression"
+(${1}) => ${0}
+endsnippet
+
+snippet afunc "arrow function"
+(${1}) => {
+	${0}
+}
+endsnippet
+
+snippet iife "immediately invoked function expression"
+(function(${1}) {
+	${0}
+}(${2}));
+endsnippet
+
+# Conditionals
+snippet if "if () {}"
+if (${1:true}) {
+	${0}
+}
+endsnippet
+
+snippet elif "else if () {}"
+else if (${1:true}) {
+	${0}
+}
+endsnippet
+
+snippet else "else {}"
+else {
+	${0}
+}
+endsnippet
+
+
+# Classes
+snippet class "ES6 class"
+class ${1:ClassName} {
+	${0}
+}
+endsnippet
+
+# Variables and objects
+snippet const "constant assignment"
+const ${1} = ${0};
+endsnippet
+
+snippet let "let expression"
+let ${1} = ${0};
+endsnippet
+
+snippet obj "create object'
+{
+	${0}
+}
+endsnippet
+
+snippet kv "key : value"
+${1:key}: ${0:'value'},
+endsnippet
+
+snippet arr "array"
+[${0}]
+endsnippet
+
+# Modules
+snippet import "import statement"
+import { ${1} } from '${2}';
+endsnippet
+
+snippet require "require()"
+require('${0}');
+endsnippet
+
+snippet mexp "module.exports expression"
+module.exports
+endsnippet
+
