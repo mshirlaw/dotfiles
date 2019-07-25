@@ -150,12 +150,10 @@ let g:fzf_colors = {
 
 " airline plugin globals
 let g:airline_theme='tomorrow'
-let g:airline#extensions#ale#enabled=1
 
 " ale linter plugin globals
 let g:ale_sign_error='>>'
 let g:ale_sign_warning='>>'
-let g:ale_set_highlights=1
 let g:ale_linters_explicit=1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
