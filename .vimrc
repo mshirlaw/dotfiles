@@ -1,5 +1,5 @@
 " mshirlaw
-" 16 July 2019
+" 26 July 2019
 
 set nocompatible
 filetype off
@@ -11,6 +11,7 @@ set rtp+=~/.vim/after/
 
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'tomasiser/vim-code-dark'
 Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
@@ -33,7 +34,7 @@ filetype plugin on
 
 syntax enable
 
-colorscheme skyhawk
+colorscheme codedark
 
 hi Search cterm=bold gui=bold
 hi link xmlEndTag xmlTag
@@ -149,7 +150,7 @@ let g:fzf_colors = {
 	\ 'header':  ['fg', 'Comment'] }
 
 " airline plugin globals
-let g:airline_theme='tomorrow'
+let g:airline_theme='codedark'
 
 " ale linter plugin globals
 let g:ale_sign_error='>>'
