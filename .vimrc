@@ -1,5 +1,5 @@
 " mshirlaw
-" 26 July 2019
+" 8 September 2019
 
 set nocompatible
 filetype off
@@ -34,7 +34,9 @@ filetype plugin on
 
 syntax enable
 
-colorscheme codedark
+if isdirectory($HOME . '/.vim/bundle/vim-code-dark')
+	colorscheme codedark
+endif
 
 hi Search cterm=bold gui=bold
 hi link xmlEndTag xmlTag
@@ -126,8 +128,8 @@ let NERDTreeShowLineNumbers=1
 let g:NERDTreeNodeDelimiter="\u00a0"
 
 " jira prepend plugin globals
-let g:jira_prepend_ticket_pattern="AFFINITY"
-let g:jira_prepend_custom_message="#time "
+let g:jira_prepend_ticket_pattern="CAC"
+let g:jira_prepend_custom_message=""
 
 " remote compile plugin globals
 let g:remote_compile_project_dir="/Users/mshirlaw/Documents/accelo/affinitylive/"
@@ -158,5 +160,4 @@ let g:ale_sign_warning='>>'
 let g:ale_linters_explicit=1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'perl' : ['perlcritic'],
 \}
