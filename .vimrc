@@ -17,7 +17,6 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'mshirlaw/jira-prepend'
-Plugin 'mshirlaw/remote-compile'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'vim-airline/vim-airline'
@@ -46,9 +45,7 @@ set relativenumber
 set autoindent
 set nosmartindent
 set nocindent
-set ts=4 sw=4 
-
-set softtabstop=0 noexpandtab
+set ts=4 sw=4 expandtab
 
 set mouse=a
 set binary
@@ -92,14 +89,13 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " set custom leader key
 let mapleader = ","
 
-" visual mode key mappings, perltidy selection, format as json, highlight last selection after indent
-vnoremap <leader>td :!perltidy<cr>
+" visual mode key mappings, format as json, highlight last selection after indent
 vnoremap <leader>js :!python -m json.tool<cr>
 vnoremap < <gv
 vnoremap > >gv
 
 " normal mode key mappings
-nnoremap <leader>ff :Files<cr>
+nnoremap <leader>ff :GFiles<cr>
 nnoremap <leader>bb :Buffers<cr>
 nnoremap <leader>ag :Ag<cr>
 nnoremap <leader>td :%!perltidy<cr>
@@ -130,9 +126,6 @@ let g:NERDTreeNodeDelimiter="\u00a0"
 " jira prepend plugin globals
 let g:jira_prepend_ticket_pattern="CAC"
 let g:jira_prepend_custom_message=""
-
-" remote compile plugin globals
-let g:remote_compile_project_dir="/Users/mshirlaw/Documents/accelo/affinitylive/"
 
 " FZF plugin globals
 let g:fzf_layout = { 'down': '~20%' }
