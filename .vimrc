@@ -10,21 +10,23 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/after/
 
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tomasiser/vim-code-dark'
-Plugin 'scrooloose/nerdtree'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
 Plugin 'SirVer/ultisnips'
-Plugin 'mshirlaw/jira-prepend'
-Plugin 'mshirlaw/remote-compile'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'mshirlaw/jira-prepend'
+Plugin 'mshirlaw/remote-compile'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tomasiser/vim-code-dark'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'tpope/vim-fugitive'
 Plugin 'w0rp/ale'
 call vundle#end()
 
@@ -130,9 +132,6 @@ let g:NERDTreeNodeDelimiter="\u00a0"
 " jira prepend plugin globals
 let g:jira_prepend_ticket_pattern="CAC"
 let g:jira_prepend_custom_message=""
-
-" remote compile plugin globals
-let g:remote_compile_project_dir="/Users/mshirlaw/Documents/accelo/affinitylive/"
 
 " FZF plugin globals
 let g:fzf_layout = { 'down': '~20%' }
