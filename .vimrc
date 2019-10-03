@@ -16,9 +16,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mshirlaw/jira-prepend'
-Plugin 'mshirlaw/remote-compile'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'prettier/vim-prettier'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'tomtom/tlib_vim'
@@ -49,6 +49,7 @@ set autoindent
 set nosmartindent
 set nocindent
 set ts=4 sw=4 expandtab
+set directory=$HOME/.tmp
 
 set mouse=a
 set binary
@@ -101,13 +102,13 @@ vnoremap > >gv
 nnoremap <leader>ff :GFiles<cr>
 nnoremap <leader>bb :Buffers<cr>
 nnoremap <leader>ag :Ag<cr>
-nnoremap <leader>td :%!perltidy<cr>
-nnoremap <leader>cr <esc>:compiler perlcritic<bar>:make<cr><bar>:cope<cr>
 nnoremap <leader>js :%!python -m json.tool<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sn :e $HOME/.vim/UltiSnips<cr>
 nnoremap <leader>ll :lnext<cr>
 nnoremap <leader>lp :lprev<cr>
+nnoremap <leader>pr :Prettier<cr>
 
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -121,6 +122,7 @@ nnoremap <space><down> :bd<cr>
 
 nnoremap <c-]> :execute "tjump " . expand("<cword>")<cr>
 map <c-n> :NERDTreeToggle<cr>
+nmap <silent> <leader>o :exec 'silent !google-chrome % &'
 
 " nerd tree plugin globals
 let NERDTreeShowLineNumbers=1
@@ -149,6 +151,27 @@ let g:fzf_colors = {
 
 " airline plugin globals
 let g:airline_theme='codedark'
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = 'Ɇ'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.dirty='⚡'
 
 " ale linter plugin globals
 let g:ale_sign_error='>>'
