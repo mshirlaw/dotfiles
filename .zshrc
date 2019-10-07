@@ -2,18 +2,14 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-if [[ -d "$HOME/mattshirlaw" ]]; then
-	export ZSH="/home/mattshirlaw/.oh-my-zsh"
-else
-	export ZSH="/Users/mshirlaw/.oh-my-zsh"
-fi
+export ZSH="/$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-#ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 ZSH_THEME="dracula"
 
 # to hide the default user from the prompt
@@ -121,14 +117,10 @@ if [[ -d "$HOME/Documents/finocomp" ]]; then
 	cd ~/Documents/finocomp
 fi
 
-if [[ -d "$HOME/mattshirlaw" ]]; then
-	JAVA_HOME=/home/mattshirlaw/.sdkman/candidates/java/8.0.222-zulu/bin/java
-fi
+JAVA_HOME=/$HOME/.sdkman/candidates/java/8.0.222-zulu/bin/java
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-if [[ -d "$HOME/mattshirlaw" ]]; then
-	#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-	export SDKMAN_DIR="/home/mattshirlaw/.sdkman"
-	[[ -s "/home/mattshirlaw/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mattshirlaw/.sdkman/bin/sdkman-init.sh"
-fi
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/$HOME/.sdkman"
+[[ -s "/$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "/$HOME/.sdkman/bin/sdkman-init.sh"

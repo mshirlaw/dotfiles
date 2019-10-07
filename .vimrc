@@ -10,7 +10,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/after/
 
 call vundle#begin()
-Plugin 'dracula/vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'SirVer/ultisnips'
 Plugin 'VundleVim/Vundle.vim'
@@ -37,10 +36,7 @@ filetype plugin on
 
 syntax enable
 
-if filereadable($HOME . '/.vim/bundle/vim/colors/dracula.vim')
-	let g:dracula_italic = 0
-	colorscheme dracula
-elseif isdirectory($HOME . '/.vim/bundle/vim-code-dark')
+if isdirectory($HOME . '/.vim/bundle/vim-code-dark')
 	colorscheme codedark
 else
 	colorscheme afterglow
@@ -160,9 +156,7 @@ let g:fzf_colors = {
 
 " airline plugin globals
 
-if filereadable($HOME . '/.vim/bundle/vim/colors/dracula.vim')
-	let g:airline_theme='dracula'
-elseif isdirectory($HOME . '/.vim/bundle/vim-code-dark')
+if isdirectory($HOME . '/.vim/bundle/vim-code-dark')
 	let g:airline_theme='codedark'
 else
 	let g:airline_themne='afterglow'
