@@ -115,9 +115,7 @@ alias format="prettier --config .prettierrc --write"
 alias start-dev="./gradelw e2e:startDevEnvironment"
 alias clean-out="find -type d -name out -exec -delete rm -rf {} \;"
 
-if [[ -d "$HOME/Documents/finocomp" ]]; then
-	cd ~/Documents/finocomp
-fi
+[[ -d "$HOME/Documents/finocomp" ]] && cd "$HOME/Documents/finocomp";
 
 JAVA_HOME=/$HOME/.sdkman/candidates/java/8.0.222-zulu/bin/java
 
