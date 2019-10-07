@@ -1,5 +1,5 @@
 " mshirlaw
-" 8 September 2019
+" 7 October 2019
 
 set nocompatible
 filetype off
@@ -10,6 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/after/
 
 call vundle#begin()
+Plugin 'dracula/vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'SirVer/ultisnips'
 Plugin 'VundleVim/Vundle.vim'
@@ -36,8 +37,13 @@ filetype plugin on
 
 syntax enable
 
-if isdirectory($HOME . '/.vim/bundle/vim-code-dark')
+if filereadable($HOME . '/.vim/bundle/vim/colors/dracula.vim')
+	let g:dracula_italic = 0
+	colorscheme dracula
+elseif isdirectory($HOME . '/.vim/bundle/vim-code-dark')
 	colorscheme codedark
+else
+	colorscheme afterglow
 endif
 
 hi Search cterm=bold gui=bold
@@ -49,7 +55,10 @@ set autoindent
 set nosmartindent
 set nocindent
 set ts=4 sw=4 expandtab
-set directory=$HOME/.tmp
+
+if isdirectory($HOME . '/.tmp')
+	set directory=$HOME/.tmp
+endif
 
 set mouse=a
 set binary
@@ -150,7 +159,15 @@ let g:fzf_colors = {
 	\ 'header':  ['fg', 'Comment'] }
 
 " airline plugin globals
-let g:airline_theme='codedark'
+
+if filereadable($HOME . '/.vim/bundle/vim/colors/dracula.vim')
+	let g:airline_theme='dracula'
+elseif isdirectory($HOME . '/.vim/bundle/vim-code-dark')
+	let g:airline_theme='codedark'
+else
+	let g:airline_themne='afterglow'
+endif
+
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
@@ -165,12 +182,6 @@ let g:airline_symbols.notexists = 'Ɇ'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
 let g:airline_symbols.dirty='⚡'
 
 " ale linter plugin globals

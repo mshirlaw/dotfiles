@@ -1,19 +1,20 @@
 #!/bin/sh
 
-# setup sym links 
+cd ~
+
+# setup symlinks 
 ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/.vimrc ~/.vimrc
 ln -s ~/dotfiles/.ideavimrc ~/.ideavimrc
 ln -s ~/dotfiles/.ackrc ~/.ackrc
+
+# setup oh my zsh & zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/dracula/zsh.git ~/zsh
+ln -s ~/zsh/dracula.zsh-theme ~/.oh-my-zsh/themes/dracula.zsh-theme
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 
-# install required software
-
-# vundle
+# setup vundle / vim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-# vim plugins
 vim +PluginInstall +qall
 
-# oh my zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
