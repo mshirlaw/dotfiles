@@ -112,6 +112,8 @@ alias evim="vim ~/.vimrc"
 alias clean-assemble="./gradlew clean assemble"
 alias build-image="./gradlew buildImage"
 alias format="prettier --config .prettierrc --write"
+alias start-dev="./gradelw e2e:startDevEnvironment"
+alias clean-out="find -type d -name out -exec -delete rm -rf {} \;"
 
 if [[ -d "$HOME/Documents/finocomp" ]]; then
 	cd ~/Documents/finocomp
