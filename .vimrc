@@ -114,6 +114,8 @@ nnoremap <leader>sn :e $HOME/.vim/UltiSnips<cr>
 nnoremap <leader>ll :lnext<cr>
 nnoremap <leader>lp :lprev<cr>
 nnoremap <leader>pr :Prettier<cr>
+nnoremap <leader>nf :NERDTreeFind<cr>
+nnoremap <leader>aa ggVG
 
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j

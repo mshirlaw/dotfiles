@@ -111,11 +111,12 @@ alias ezsh="vim ~/.zshrc"
 alias evim="vim ~/.vimrc"
 alias clean-assemble="./gradlew clean assemble"
 alias build-image="./gradlew buildImage"
-alias format="prettier --config .prettierrc --write"
 alias start-dev="./gradelw e2e:startDevEnvironment"
-alias clean-out="find -type d -name out -exec -delete rm -rf {} \;"
-
-[[ -d "$HOME/Documents/finocomp" ]] && cd "$HOME/Documents/finocomp";
+alias clean-out="find . -type d -name out | xargs rm -rf"
+alias docker-prune-image="pkill -9 java; docker image prune -f"
+alias docker-prune-network="pkill -9 java; docker network prune -f"
+alias docker-prune-system="pkill -9 java; docker system prune -f"
+alias e2e="./gradlew e2e:test"
 
 JAVA_HOME=/$HOME/.sdkman/candidates/java/8.0.222-zulu/bin/java
 
