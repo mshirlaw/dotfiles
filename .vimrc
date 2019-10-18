@@ -116,6 +116,7 @@ nnoremap <leader>lp :lprev<cr>
 nnoremap <leader>pr :Prettier<cr>
 nnoremap <leader>nf :NERDTreeFind<cr>
 nnoremap <leader>aa ggVG
+nnoremap <leader>xx <ctl-w><ctl-x>
 
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -187,3 +188,6 @@ let g:ale_linters_explicit=1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \}
+
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
