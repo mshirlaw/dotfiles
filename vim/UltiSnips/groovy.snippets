@@ -1,0 +1,60 @@
+# Classes
+snippet class "class"
+class ${1:Class} {
+	${0}
+}
+endsnippet
+
+snippet cl "groovy closure"
+{ ${0} }
+endsnippet
+
+snippet .each "groovy each closure"
+.each { it -> ${0} }
+endsnippet
+
+snippet throw "groovy throw error"
+throw new ${1:Error}("${0}")
+endsnippet
+
+# Spock testing
+snippet stf "spock test function"
+def "${1:test name}"() {
+	${0}
+}
+endsnippet
+
+# Geb testing
+snippet gclass "geb test class"
+import com.finocomp.testutils.spock.Slow
+import spock.lang.Stepwise
+
+@Slow
+@Stepwise
+class ${1:Class} extends AuthenticationSpec {
+	${0}
+}
+endsnippet
+
+snippet gmod "geb test module"
+import geb.Module
+
+class ${1:Module} extends Module {
+	${0}
+}
+endsnippet
+
+snippet gsc "geb static content module block"
+static content = {
+	${0}
+}
+endsnippet
+
+snippet gsel "geb selector"
+$("${0}")
+endsnippet
+
+snippet gwf "geb waitFor block"
+waitFor { ${0} }
+endsnippet
+
