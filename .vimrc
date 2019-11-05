@@ -34,6 +34,9 @@ call vundle#end()
 filetype plugin on
 
 " custom settings
+" Set dracula italics to off before loading dracula
+
+let g:dracula_italic=0 
 
 syntax enable
 colorscheme dracula
