@@ -113,7 +113,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>sn :e $HOME/.vim/UltiSnips<cr>
 nnoremap <leader>ll :lnext<cr>
 nnoremap <leader>lp :lprev<cr>
-nnoremap <leader>pr :Prettier<cr>
+nnoremap <leader>pr :ALEFix<cr>
 nnoremap <leader>nf :NERDTreeFind<cr>
 nnoremap <leader>aa ggVG
 nnoremap <leader>xx <ctl-w><ctl-x>
@@ -187,6 +187,11 @@ let g:ale_sign_warning='>>'
 let g:ale_linters_explicit=1
 let g:ale_linters = {
 \   'javascript': ['eslint'],
+\}
+
+let g:ale_fixers = {
+\	'javascript': ['prettier'],
+\	'css': ['prettier']
 \}
 
 let g:UltiSnipsJumpForwardTrigger="<tab>"
