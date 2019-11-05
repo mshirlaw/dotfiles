@@ -1,5 +1,5 @@
 " mshirlaw
-" 7 October 2019
+" 5 November 2019
 
 set nocompatible
 filetype off
@@ -13,6 +13,7 @@ call vundle#begin()
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'SirVer/ultisnips'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'dracula/vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mshirlaw/jira-prepend'
@@ -35,12 +36,7 @@ filetype plugin on
 " custom settings
 
 syntax enable
-
-if isdirectory($HOME . '/.vim/bundle/vim-code-dark')
-	colorscheme codedark
-else
-	colorscheme afterglow
-endif
+colorscheme dracula
 
 hi Search cterm=bold gui=bold
 hi link xmlEndTag xmlTag
@@ -159,11 +155,7 @@ let g:fzf_colors = {
 
 " airline plugin globals
 
-if isdirectory($HOME . '/.vim/bundle/vim-code-dark')
-	let g:airline_theme='codedark'
-else
-	let g:airline_themne='afterglow'
-endif
+let g:airline_theme='dracula'
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
