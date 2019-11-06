@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
+
 alias ezsh="vim ~/.zshrc"
 alias evim="vim ~/.vimrc"
 alias clean-assemble="./gradlew clean assemble"
