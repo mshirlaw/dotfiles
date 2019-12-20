@@ -117,6 +117,8 @@ nnoremap <leader>pr :ALEFix<cr>
 nnoremap <leader>nf :NERDTreeFind<cr>
 nnoremap <leader>aa ggVG
 nnoremap <leader>xx <ctl-w><ctl-x>
+nnoremap <leader>ra *G :%s///g<left><left>
+nnoremap <leader>rc *G :%s///gc<left><left><left>
 
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
@@ -130,7 +132,7 @@ nnoremap <space><down> :bd<cr>
 
 nnoremap <c-]> :execute "tjump " . expand("<cword>")<cr>
 map <c-n> :NERDTreeToggle<cr>
-nmap <silent> <leader>o :exec 'silent !google-chrome % &'
+nmap <silent> <leader>o :exec "silent !google-chrome % &"
 
 " nerd tree plugin globals
 let NERDTreeShowLineNumbers=1
