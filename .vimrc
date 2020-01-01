@@ -13,6 +13,7 @@ call vundle#begin()
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'SirVer/ultisnips'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'dyng/ctrlsf.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mshirlaw/jira-prepend'
@@ -131,8 +132,29 @@ nnoremap <space><left> :bp<cr>
 nnoremap <space><down> :bd<cr>
 
 nnoremap <c-]> :execute "tjump " . expand("<cword>")<cr>
+
+" open nerdtree from anwhwere
 map <c-n> :NERDTreeToggle<cr>
+
+" open google chrome with current file
 nmap <silent> <leader>o :exec "silent !google-chrome % &"
+
+" CtrlSF maps
+
+" display normal prompt
+nmap <c-f>f <Plug>CtrlSFPrompt
+
+" prepopulate word under cursor
+nmap <c-f>n <Plug>CtrlSFCwordPath
+
+" prepopulate with last search pattern
+nmap <c-f>p <Plug>CtrlSFPwordPath
+
+" prepopulate with visual selection
+vmap <c-f>f <Plug>CtrlSFVwordPath
+
+" auto-execute with visual selection
+vmap <c-f>F <Plug>CtrlSFVwordExec
 
 " nerd tree plugin globals
 let NERDTreeShowLineNumbers=1
@@ -198,3 +220,5 @@ let g:ale_fixers = {
 
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+let g:ctrlsf_position="right"
