@@ -115,7 +115,6 @@ nnoremap <leader>sn :e $HOME/.vim/UltiSnips<cr>
 nnoremap <leader>ll :lnext<cr>
 nnoremap <leader>lp :lprev<cr>
 nnoremap <leader>pr :ALEFix<cr>
-nnoremap <leader>nf :NERDTreeFind<cr>
 nnoremap <leader>aa ggVG
 nnoremap <leader>xx <ctl-w><ctl-x>
 nnoremap <leader>ra *G :%s///g<left><left>
@@ -134,7 +133,8 @@ nnoremap <space><down> :bd<cr>
 nnoremap <c-]> :execute "tjump " . expand("<cword>")<cr>
 
 " open nerdtree from anwhwere
-map <c-n> :NERDTreeToggle<cr>
+map <c-n>t :NERDTreeToggle<cr>
+nnoremap <c-n>f :NERDTreeFind<cr>
 
 " open google chrome with current file
 nmap <silent> <leader>o :exec "silent !google-chrome % &"
