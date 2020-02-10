@@ -1,22 +1,22 @@
 {
-    "keyboard.dispatch": "keyCode",
-    "workbench.startupEditor": "newUntitledFile",
-    "editor.insertSpaces": false,
-    "editor.renderWhitespace": "all",
-    "workbench.colorCustomizations": {},
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "editor.lineNumbers": "relative",
-    "vim.hlsearch": true,
-    "vim.leader": ",",
-    "vim.useSystemClipboard": true,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    },
-    "search.enableSearchEditorPreview": true,
-    "eslint.alwaysShowStatus": true
+  "editor.formatOnSave": true,
+  "editor.insertSpaces": false,
+  "editor.lineNumbers": "relative",
+  "editor.renderWhitespace": "all",
+  "editor.suggestSelection": "first",
+  "eslint.alwaysShowStatus": true,
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "keyboard.dispatch": "keyCode",
+  "search.enableSearchEditorPreview": true,
+  "vim.hlsearch": true,
+  "vim.leader": ",",
+  "vim.useSystemClipboard": true,
+  "workbench.colorCustomizations": {},
+  "workbench.startupEditor": "newUntitledFile"
 }
