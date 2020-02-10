@@ -119,6 +119,7 @@ alias docker-prune-image="pkill -9 java; docker image prune -f"
 alias docker-prune-network="pkill -9 java; docker network prune -f"
 alias docker-prune-system="pkill -9 java; docker system prune -f"
 alias e2e="./gradlew e2e:test"
+alias prettier="node_modules/prettier/bin-prettier.js --config .prettierrc --write"
 
 JAVA_HOME=/$HOME/.sdkman/candidates/java/8.0.222-zulu/bin/java
 

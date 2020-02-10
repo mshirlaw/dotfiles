@@ -1,6 +1,22 @@
 {
+    "keyboard.dispatch": "keyCode",
     "workbench.startupEditor": "newUntitledFile",
     "editor.insertSpaces": false,
     "editor.renderWhitespace": "all",
-    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.colorCustomizations": {},
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "editor.lineNumbers": "relative",
+    "vim.hlsearch": true,
+    "vim.leader": ",",
+    "vim.useSystemClipboard": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "search.enableSearchEditorPreview": true,
+    "eslint.alwaysShowStatus": true
 }
