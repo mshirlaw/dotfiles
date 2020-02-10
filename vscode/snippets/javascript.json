@@ -1,40 +1,68 @@
 {
-	// Place your snippets for javascript here. Each snippet is defined under a snippet name and has a prefix, body and 
-	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the same ids are connected.
-	"Print to console": {
-		"prefix": "log",
-		"body": [
-			"console.log('$1');",
-			"$2"
-		],
-		"description": "Log output to console"
-	},
-	"React App" : {
-		"prefix": "react-app",
-		"body" : [
-			"import React from 'react';",
-			"import ReactDOM from 'react-dom';\n",
-			"const App = () => {",
-				"\treturn (",
-					"\t\t<div>Hello world!</div>",
-				"\t);",
-			"};\n",
-			"ReactDOM.render(<App />, document.querySelector('#root'));"
-		],
-		"description": "Create a new React App"
-	},
-	"React Component" : {
-		"prefix": "react-component",
-		"body" : [
-			"import React from 'react';\n",
-			"const ${1:Component} = () => {",
-				"\treturn (",
-					"\t\t<div>Hello world!</div>",
-				"\t);",
-			"};\n",
-			"export default ${1:Component};"
-		],
-		"description": "Create a new React Component"
-	}
+  "Print to console": {
+    "prefix": "log",
+    "body": [
+      "console.log('$1');",
+      "$2"
+    ],
+    "description": "Log output to console"
+  },
+  "React App": {
+    "prefix": "app",
+    "body": [
+      "import React from 'react';",
+      "import ReactDOM from 'react-dom';\n",
+      "const App = () => {",
+      "\treturn (",
+      "\t\t<div>Hello world!</div>",
+      "\t);",
+      "};\n",
+      "ReactDOM.render(<App />, document.querySelector('#root'));"
+    ],
+    "description": "Create a new React App"
+  },
+  "React Functional Component": {
+    "prefix": "rfc",
+    "body": [
+      "import React from 'react';\n",
+      "const $1 = () => {",
+      "\treturn (",
+      "\t\t<div>${0:Hello world}</div>",
+      "\t);",
+      "};\n",
+      "export default $1;"
+    ],
+    "description": "Create a new React Functional Component"
+  },
+  "React Class Component": {
+    "prefix": "rcc",
+    "body": [
+      "import React, { Component } from 'react';\n",
+      "export class $1 extends Component {\n",
+      "\trender(){",
+      "\t\treturn <div>${0:Hello world}</div>;",
+      "\t}",
+      "}\n",
+      "export default $1;\n"
+    ],
+    "description": "Create a new React Class Component"
+  },
+  "Describe block": {
+    "prefix": "descr",
+    "body": [
+      "describe('$1', () => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Describe block"
+  },
+  "Test block": {
+    "prefix": "tes",
+    "body": [
+      "test('$1', () => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Test block"
+  }
 }
