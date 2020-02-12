@@ -19,5 +19,6 @@
   "vim.useSystemClipboard": true,
   "workbench.colorCustomizations": {},
   "workbench.startupEditor": "newUntitledFile",
-  "prettier.requireConfig": true
+  "prettier.requireConfig": true,
+  "workbench.iconTheme": "material-icon-theme"
 }

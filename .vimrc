@@ -1,5 +1,5 @@
 " mshirlaw
-" 5 November 2019
+" 12 February 2020
 
 set nocompatible
 filetype off
@@ -105,7 +105,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " normal mode key mappings
-nnoremap <leader>ff :GFiles<cr>
+nnoremap <leader>ff :Files<cr>
 nnoremap <leader>bb :Buffers<cr>
 nnoremap <leader>ag :Ag<cr>
 nnoremap <leader>js :%!python -m json.tool<cr>
@@ -114,12 +114,18 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>sn :e $HOME/.vim/UltiSnips<cr>
 nnoremap <leader>ll :lnext<cr>
 nnoremap <leader>lp :lprev<cr>
-nnoremap <leader>pr :ALEFix<cr>
 nnoremap <leader>aa ggVG
 nnoremap <leader>xx <ctl-w><ctl-x>
 nnoremap <leader>ra *G :%s///g<left><left>
 nnoremap <leader>rc *G :%s///gc<left><left><left>
 
+" ALE mappings
+nnoremap <c-a>f :ALEFix<cr>
+nnoremap <c-a>d :ALEGoToDefinition<cr>
+nnoremap <c-a>r :ALEFindReferences<cr>
+nnoremap <c-a>s :ALESymbolSearch<cr>
+
+" window navigation mappings
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -132,7 +138,7 @@ nnoremap <space><down> :bd<cr>
 
 nnoremap <c-]> :execute "tjump " . expand("<cword>")<cr>
 
-" open nerdtree from anwhwere
+" nerd tree mappings
 map <c-n>t :NERDTreeToggle<cr>
 nnoremap <c-n>f :NERDTreeFind<cr>
 
@@ -140,20 +146,10 @@ nnoremap <c-n>f :NERDTreeFind<cr>
 nmap <silent> <leader>o :exec "silent !google-chrome % &"
 
 " CtrlSF maps
-
-" display normal prompt
 nmap <c-f>f <Plug>CtrlSFPrompt
-
-" prepopulate word under cursor
 nmap <c-f>n <Plug>CtrlSFCwordPath
-
-" prepopulate with last search pattern
 nmap <c-f>p <Plug>CtrlSFPwordPath
-
-" prepopulate with visual selection
 vmap <c-f>f <Plug>CtrlSFVwordPath
-
-" auto-execute with visual selection
 vmap <c-f>F <Plug>CtrlSFVwordExec
 
 " nerd tree plugin globals
@@ -182,7 +178,6 @@ let g:fzf_colors = {
 	\ 'header':  ['fg', 'Comment'] }
 
 " airline plugin globals
-
 if isdirectory($HOME . '/.vim/bundle/vim-code-dark')
 	let g:airline_theme='codedark'	
 else	
@@ -210,13 +205,16 @@ let g:ale_sign_error='>>'
 let g:ale_sign_warning='>>'
 let g:ale_linters_explicit=1
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'tsserver'],
 \}
 
 let g:ale_fixers = {
 \	'javascript': ['prettier'],
 \	'css': ['prettier']
 \}
+
+let g:ale_completion_enabled=1
+let g:ale_completion_tsserver_autoimport=1
 
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
