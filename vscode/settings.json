@@ -20,5 +20,8 @@
   "workbench.colorCustomizations": {},
   "workbench.startupEditor": "newUntitledFile",
   "prettier.requireConfig": true,
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

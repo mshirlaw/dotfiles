@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'lifepillar/vim-mucomplete'
 Plugin 'mshirlaw/jira-prepend'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
@@ -32,10 +33,13 @@ Plugin 'w0rp/ale'
 call vundle#end()
 
 filetype plugin on
-
-" custom settings
-
 syntax enable
+
+" auto-completion settings
+set omnifunc=syntaxcomplete#Complete
+set completeopt+=menuone,noinsert
+set shortmess+=c
+set belloff+=ctrlg
 
 if isdirectory($HOME . '/.vim/bundle/vim-code-dark')	
 	colorscheme codedark	
@@ -72,13 +76,6 @@ set laststatus=2
 
 set wrap!
 set hidden
-set tags=tags
-
-" set .tt file type to html
-augroup tt_as_html
-	autocmd!
-	autocmd BufNewFile,BufRead *.tt set filetype=html
-augroup END
 
 " syntax highlighting from the start always
 augroup syntax_highlight
@@ -112,10 +109,7 @@ nnoremap <leader>js :%!python -m json.tool<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>sn :e $HOME/.vim/UltiSnips<cr>
-nnoremap <leader>ll :lnext<cr>
-nnoremap <leader>lp :lprev<cr>
 nnoremap <leader>aa ggVG
-nnoremap <leader>xx <ctl-w><ctl-x>
 nnoremap <leader>ra *G :%s///g<left><left>
 nnoremap <leader>rc *G :%s///gc<left><left><left>
 
@@ -136,14 +130,9 @@ nnoremap <space><right> :bn<cr>
 nnoremap <space><left> :bp<cr>
 nnoremap <space><down> :bd<cr>
 
-nnoremap <c-]> :execute "tjump " . expand("<cword>")<cr>
-
 " nerd tree mappings
 map <c-n>t :NERDTreeToggle<cr>
 nnoremap <c-n>f :NERDTreeFind<cr>
-
-" open google chrome with current file
-nmap <silent> <leader>o :exec "silent !google-chrome % &"
 
 " CtrlSF maps
 nmap <c-f>f <Plug>CtrlSFPrompt
@@ -205,7 +194,7 @@ let g:ale_sign_error='>>'
 let g:ale_sign_warning='>>'
 let g:ale_linters_explicit=1
 let g:ale_linters = {
-\   'javascript': ['eslint', 'tsserver'],
+\   'javascript': ['eslint'],
 \}
 
 let g:ale_fixers = {
@@ -213,10 +202,10 @@ let g:ale_fixers = {
 \	'css': ['prettier']
 \}
 
-let g:ale_completion_enabled=1
-let g:ale_completion_tsserver_autoimport=1
-
-let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsExpandTrigger="<tab>"    
+let g:UltiSnipsJumpForwardTrigger="<tab>"      
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 let g:ctrlsf_position="right"
+let g:mucomplete#enable_auto_at_startup=1
+let g:mucomplete#no_mappings =1
