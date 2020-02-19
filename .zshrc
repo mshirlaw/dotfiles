@@ -121,6 +121,8 @@ alias docker-prune-system="pkill -9 java; docker system prune -f"
 alias e2e="./gradlew e2e:test"
 alias prettier="node_modules/prettier/bin-prettier.js --config .prettierrc --write"
 
+export FZF_DEFAULT_COMMAND="ag --no-color --path-to-ignore ~/.ignore --hidden -g ''"
+
 JAVA_HOME=/$HOME/.sdkman/candidates/java/8.0.222-zulu/bin/java
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).

@@ -102,7 +102,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " normal mode key mappings
-nnoremap <leader>ff :Files<cr>
+nnoremap <leader>ff :FZF<cr>
 nnoremap <leader>bb :Buffers<cr>
 nnoremap <leader>ag :Ag<cr>
 nnoremap <leader>js :%!python -m json.tool<cr>
