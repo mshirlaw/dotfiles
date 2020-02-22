@@ -10,6 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/after/
 
 call vundle#begin()
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'SirVer/ultisnips'
 Plugin 'VundleVim/Vundle.vim'
@@ -133,6 +134,7 @@ nnoremap <space><down> :bd<cr>
 " nerd tree mappings
 map <c-n>t :NERDTreeToggle<cr>
 nnoremap <c-n>f :NERDTreeFind<cr>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " CtrlSF maps
 nmap <c-f>f <Plug>CtrlSFPrompt
@@ -207,5 +209,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 let g:ctrlsf_position="right"
+
 let g:mucomplete#enable_auto_at_startup=1
 let g:mucomplete#no_mappings =1
