@@ -1,5 +1,5 @@
 " mshirlaw
-" 12 February 2020
+" 24 February 2020
 
 set nocompatible
 filetype off
@@ -52,6 +52,8 @@ endif
 
 hi Search cterm=bold gui=bold
 hi link xmlEndTag xmlTag
+
+set encoding=UTF-8
 
 set number
 set relativenumber
