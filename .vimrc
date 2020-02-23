@@ -10,18 +10,20 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/after/
 
 call vundle#begin()
-Plugin 'ryanoasis/vim-devicons'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'SirVer/ultisnips'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'ianks/vim-tsx'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'mshirlaw/jira-prepend'
 Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
 Plugin 'prettier/vim-prettier'
+Plugin 'ryanoasis/vim-devicons'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'tomtom/tlib_vim'
