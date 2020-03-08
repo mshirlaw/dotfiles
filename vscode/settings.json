@@ -23,5 +23,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "workbench.colorTheme": "Night Owl (No Italics)",
+  "editor.renderIndentGuides": false
 }

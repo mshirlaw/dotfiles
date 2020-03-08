@@ -1,5 +1,5 @@
 " mshirlaw
-" 24 February 2020
+" 9 March 2020
 
 set nocompatible
 filetype off
@@ -14,6 +14,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'SirVer/ultisnips'
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'dyng/ctrlsf.vim'
+Plugin 'haishanh/night-owl.vim'
 Plugin 'ianks/vim-tsx'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
@@ -38,17 +39,17 @@ call vundle#end()
 filetype plugin on
 syntax enable
 
+if (has("termguicolors"))
+	set termguicolors
+endif
+
 " auto-completion settings
 set omnifunc=syntaxcomplete#Complete
 set completeopt+=menuone,noinsert
 set shortmess+=c
 set belloff+=ctrlg
 
-if isdirectory($HOME . '/.vim/bundle/vim-code-dark')	
-	colorscheme codedark	
-else	
-	colorscheme afterglow	
-endif
+colorscheme night-owl
 
 hi Search cterm=bold gui=bold
 hi link xmlEndTag xmlTag
@@ -173,11 +174,8 @@ let g:fzf_colors = {
 	\ 'header':  ['fg', 'Comment'] }
 
 " airline plugin globals
-if isdirectory($HOME . '/.vim/bundle/vim-code-dark')
-	let g:airline_theme='codedark'	
-else	
-	let g:airline_themne='afterglow'	
-endif
+
+let g:airline_theme='deus'
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
@@ -205,6 +203,7 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
 \	'javascript': ['prettier'],
+\   'typescript': ['prettier'],
 \	'css': ['prettier']
 \}
 
