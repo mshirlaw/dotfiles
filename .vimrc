@@ -1,5 +1,5 @@
 " mshirlaw
-" 9 March 2020
+" 25 June 2021
 
 set nocompatible
 filetype off
@@ -13,6 +13,7 @@ call vundle#begin()
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'SirVer/ultisnips'
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'dense-analysis/ale'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'haishanh/night-owl.vim'
 Plugin 'ianks/vim-tsx'
@@ -33,7 +34,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'w0rp/ale'
 call vundle#end()
 
 filetype plugin on
@@ -62,6 +62,7 @@ set autoindent
 set nosmartindent
 set nocindent
 set ts=4 sw=4 expandtab
+set splitbelow
 
 if isdirectory($HOME . '/.tmp')
 	set directory=$HOME/.tmp
@@ -70,7 +71,8 @@ endif
 set mouse=a
 set binary
 set noeol
-set hlsearch incsearch
+set nohlsearch
+set incsearch
 set ignorecase
 
 set cursorline
@@ -120,10 +122,9 @@ nnoremap <leader>ra *G :%s///g<left><left>
 nnoremap <leader>rc *G :%s///gc<left><left><left>
 
 " ALE mappings
-nnoremap <c-a>f :ALEFix<cr>
-nnoremap <c-a>d :ALEGoToDefinition<cr>
-nnoremap <c-a>r :ALEFindReferences<cr>
-nnoremap <c-a>s :ALESymbolSearch<cr>
+nnoremap gf :ALEFix<cr>
+nnoremap gd :ALEGoToDefinition<cr>
+nnoremap gr :ALEFindReferences -relative<cr>
 
 " window navigation mappings
 nnoremap <c-h> <c-w>h
@@ -134,7 +135,7 @@ nnoremap <c-l> <c-w>l
 " alternative buffer switching
 nnoremap <space><right> :bn<cr>
 nnoremap <space><left> :bp<cr>
-nnoremap <space><down> :bd<cr>
+nnoremap <space><down> :bw!<cr>
 
 " nerd tree mappings
 map <c-n>t :NERDTreeToggle<cr>
@@ -143,10 +144,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " CtrlSF maps
 nmap <c-f>f <Plug>CtrlSFPrompt
-nmap <c-f>n <Plug>CtrlSFCwordPath
-nmap <c-f>p <Plug>CtrlSFPwordPath
-vmap <c-f>f <Plug>CtrlSFVwordPath
-vmap <c-f>F <Plug>CtrlSFVwordExec
 
 " nerd tree plugin globals
 let NERDTreeShowLineNumbers=1
@@ -194,17 +191,19 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_symbols.dirty='⚡'
 
 " ale linter plugin globals
+let g:ale_fix_on_save=1
 let g:ale_sign_error='>>'
 let g:ale_sign_warning='>>'
 let g:ale_linters_explicit=1
 let g:ale_linters = {
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'tsserver'],
+\   'typescript': ['eslint', 'tsserver']
 \}
 
 let g:ale_fixers = {
-\	'javascript': ['prettier'],
+\   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
-\	'css': ['prettier']
+\   'css': ['prettier']
 \}
 
 let g:UltiSnipsExpandTrigger="<tab>"    
