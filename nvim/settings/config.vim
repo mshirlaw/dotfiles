@@ -1,6 +1,7 @@
 set autoindent
 set backspace=indent,eol,start
 set binary
+set clipboard^=unnamed,unnamedplus
 set cursorline
 set encoding=UTF-8
 set hidden
