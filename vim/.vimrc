@@ -39,9 +39,11 @@ call vundle#end()
 filetype plugin on
 syntax enable
 
-if (has("termguicolors"))
-	set termguicolors
-endif
+" if (has("termguicolors"))
+" 	set termguicolors
+" endif
+
+set notermguicolors
 
 " auto-completion settings
 set omnifunc=syntaxcomplete#Complete

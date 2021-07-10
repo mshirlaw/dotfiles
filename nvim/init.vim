@@ -14,6 +14,7 @@ source $HOME/.config/nvim/fzf/config.vim
 source $HOME/.config/nvim/lightline/config.vim
 source $HOME/.config/nvim/nerdtree/config.vim
 source $HOME/.config/nvim/nvim-lspconfig/config.vim
+source $HOME/.config/nvim/nvim-telescope/config.vim
 source $HOME/.config/nvim/vim-prettier/config.vim
 
 " syntax highlighting and color scheme

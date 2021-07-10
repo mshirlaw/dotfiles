@@ -109,25 +109,28 @@ source $ZSH/oh-my-zsh.sh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
+# vim and zsh 
 alias ezsh="vim ~/.zshrc"
 alias evim="vim ~/.vimrc"
+
+# docker aliases
+alias docker-prune-image="docker image prune -f"
+alias docker-prune-network="docker network prune -f"
+alias docker-prune-system="docker system prune -f"
+alias docker-prune-all="docker image prune -f && docker network prune -f && docker system prune -f"
+
+# finocomp specific aliases
+alias clean-out="find . -type d -name out | xargs rm -rf; rm -rf webui/node_modules"
 alias clean-assemble="./gradlew clean assemble"
 alias build-image="./gradlew buildImage"
 alias start-dev="./gradelw e2e:startDevEnvironment"
-alias clean-out="find . -type d -name out | xargs rm -rf; rm -rf webui/node_modules"
-alias docker-prune-image="pkill -9 java; docker image prune -f"
-alias docker-prune-network="pkill -9 java; docker network prune -f"
-alias docker-prune-system="pkill -9 java; docker system prune -f"
 alias e2e="./gradlew e2e:test"
 alias prettier="node_modules/prettier/bin-prettier.js --config .prettierrc --write"
 
+export BAT_THEME="Dracula"
 export FZF_DEFAULT_COMMAND="ag --no-color --path-to-ignore ~/.ignore --hidden -g ''"
 
 JAVA_HOME=$HOME/.sdkman/candidates/java/current
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/$HOME/.sdkman"

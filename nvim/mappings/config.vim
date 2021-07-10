@@ -5,14 +5,17 @@ vnoremap <leader>js :!python -m json.tool<cr>
 vnoremap < <gv
 vnoremap > >gv
 
-" normal mode key mappings
-nnoremap <leader>ff :FZF<cr>
-nnoremap <leader>bb :Buffers<cr>
-nnoremap <leader>ag :Ag<cr>
+" format json
 nnoremap <leader>js :%!python -m json.tool<cr>
+
+" working with .vimrc
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+
+" highlight all
 nnoremap <leader>ha ggVG
+
+" find and replace
 nnoremap <leader>ra *G :%s///g<left><left>
 nnoremap <leader>rc *G :%s///gc<left><left><left>
 
@@ -26,3 +29,10 @@ nnoremap <c-l> <c-w>l
 nnoremap <space><right> :bn<cr>
 nnoremap <space><left> :bp<cr>
 nnoremap <space><down> :bw!<cr>
+
+" Find files using telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+

@@ -8,4 +8,3 @@ augroup syntax_highlight
 augroup END
 
 syntax enable
-colorscheme night-owl
