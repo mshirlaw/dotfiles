@@ -34,16 +34,16 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-call vundle#end()
+cal vundle#end()
 
 filetype plugin on
 syntax enable
 
-" if (has("termguicolors"))
-" 	set termguicolors
-" endif
-
-set notermguicolors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " auto-completion settings
 set omnifunc=syntaxcomplete#Complete

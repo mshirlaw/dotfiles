@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+source <(kubectl completion zsh)
+
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
 # vim and zsh 
@@ -126,11 +128,26 @@ alias build-image="./gradlew buildImage"
 alias start-dev="./gradelw e2e:startDevEnvironment"
 alias e2e="./gradlew e2e:test"
 alias prettier="node_modules/prettier/bin-prettier.js --config .prettierrc --write"
+alias k=kubectl
+alias tmux="tmux -2"
+
+complete -F __start_kubectl k
 
 export BAT_THEME="Dracula"
 export FZF_DEFAULT_COMMAND="ag --no-color --path-to-ignore ~/.ignore --hidden -g ''"
 
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/mattshirlaw/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mattshirlaw/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/mattshirlaw/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mattshirlaw/google-cloud-sdk/completion.zsh.inc'; fi
+
 JAVA_HOME=$HOME/.sdkman/candidates/java/current
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/$HOME/.sdkman"

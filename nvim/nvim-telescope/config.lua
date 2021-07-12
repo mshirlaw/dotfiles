@@ -17,6 +17,7 @@ require('telescope').setup{
     sorting_strategy = "descending",
     layout_strategy = "flex",
     layout_config = {
+      prompt_position = 'top',
       horizontal = {
         mirror = false,
       },
@@ -25,7 +26,7 @@ require('telescope').setup{
       },
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
-    file_ignore_patterns = {},
+    file_ignore_patterns = { 'build/.*', 'node_modules/.*' },
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     winblend = 0,
     brder = {},
