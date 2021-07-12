@@ -136,7 +136,10 @@ complete -F __start_kubectl k
 export BAT_THEME="Dracula"
 export FZF_DEFAULT_COMMAND="ag --no-color --path-to-ignore ~/.ignore --hidden -g ''"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [[ "$(uname -s)" == "Linux" ]];
+then
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/mattshirlaw/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mattshirlaw/google-cloud-sdk/path.zsh.inc'; fi
