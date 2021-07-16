@@ -8,21 +8,34 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
-    
+
+    " nvim-telescope
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
 
+    " theme
     Plug 'haishanh/night-owl.vim'
-    Plug 'hrsh7th/nvim-compe'
     Plug 'itchyny/lightline.vim'
+
+    " fzf
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+    " nerdtree
     Plug 'ryanoasis/vim-devicons'
     Plug 'scrooloose/nerdtree'
-    Plug 'tpope/vim-commentary'
+    
+    " git 
     Plug 'tpope/vim-fugitive'
+
+    " formatting
+    Plug 'tpope/vim-commentary'
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+    " lsp
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'glepnir/lspsaga.nvim'
+    Plug 'hrsh7th/nvim-compe'
 
 call plug#end()

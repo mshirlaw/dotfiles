@@ -51,3 +51,9 @@ nnoremap <c-n>f :NERDTreeFind<cr>
 nmap <leader>gs :G<CR>
 nmap <leader>gf :Gdiffsplit<cr>
 nmap <leader>gb :Git blame<cr>
+
+" lspsaga
+nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+nnoremap <silent><leader>re <cmd>lua require('lspsaga.rename').rename()<CR>
+nnoremap <silent><leader>ho <cmd>lua require('lspsaga.hover').render_hover_doc()<CR>
+
