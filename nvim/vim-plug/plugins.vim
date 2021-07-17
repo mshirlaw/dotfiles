@@ -37,8 +37,5 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'neovim/nvim-lspconfig'
     Plug 'glepnir/lspsaga.nvim'
     Plug 'hrsh7th/nvim-compe'
-    
-    " syntax
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 call plug#end()
