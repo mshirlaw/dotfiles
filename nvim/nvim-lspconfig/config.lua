@@ -16,6 +16,12 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
 
+  buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+  buf_set_keymap('n', '<leader>re', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+
+-- Not using hover menu until default formatting looks better
+-- buf_set_keymap('n', '<leader>ho', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+
 end
 
 local servers = { "tsserver", "bashls", "jsonls", "html", "cssls", "vimls", "yamlls" }
@@ -27,3 +33,4 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+

@@ -14,8 +14,9 @@ source $HOME/.config/nvim/settings/config.vim
 " plugin specific lua settings 
 luafile $HOME/.config/nvim/nvim-compe/config.lua
 luafile $HOME/.config/nvim/nvim-telescope/config.lua
-luafile $HOME/.config/nvim/nvim-lspconfig/config.lua
 luafile $HOME/.config/nvim/lspsaga/config.lua
+luafile $HOME/.config/nvim/nvim-lspconfig/config.lua
+luafile $HOME/.config/nvim/nvim-treesitter/config.lua
 
 " plugin specific vim settings
 source $HOME/.config/nvim/fzf/config.vim
