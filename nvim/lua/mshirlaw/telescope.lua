@@ -8,4 +8,12 @@ M.search_dotfiles = function()
     })
 end
 
+M.search_notes = function()
+    require("telescope.builtin").find_files({
+        prompt_title = "< Notes >",
+        cwd = '~/notes',
+        hidden = true,
+    })
+end
+
 return M

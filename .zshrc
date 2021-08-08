@@ -89,11 +89,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -130,22 +130,18 @@ alias e2e="./gradlew e2e:test"
 alias prettier="node_modules/prettier/bin-prettier.js --config .prettierrc --write"
 alias k=kubectl
 alias tmux="tmux -2"
+alias vim=nvim
 
 complete -F __start_kubectl k
 
 export BAT_THEME="Dracula"
 export FZF_DEFAULT_COMMAND="ag --no-color --path-to-ignore ~/.ignore --hidden -g ''"
+export PATH=$HOME/.local/bin:$PATH
 
 if [[ "$(uname -s)" == "Linux" ]];
 then
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mattshirlaw/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mattshirlaw/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/mattshirlaw/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mattshirlaw/google-cloud-sdk/completion.zsh.inc'; fi
 
 JAVA_HOME=$HOME/.sdkman/candidates/java/current
 
@@ -155,3 +151,9 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/$HOME/.sdkman"
 [[ -s "/$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "/$HOME/.sdkman/bin/sdkman-init.sh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/mattshirlaw/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mattshirlaw/Desktop/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/mattshirlaw/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mattshirlaw/Desktop/google-cloud-sdk/completion.zsh.inc'; fi

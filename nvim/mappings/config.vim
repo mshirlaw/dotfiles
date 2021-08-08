@@ -18,6 +18,7 @@ nnoremap <leader>js :%!python -m json.tool<cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>fv :lua require("mshirlaw.telescope").search_dotfiles()<cr>
+nnoremap <leader>fn :lua require("mshirlaw.telescope").search_notes()<cr>
 
 " highlight all
 nnoremap <leader>ha ggVG
