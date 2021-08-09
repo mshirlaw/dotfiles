@@ -150,6 +150,20 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # setup screen layout for external monitor
 bindsym $mod+Shift+x exec /home/mattshirlaw/.screenlayout/layout-home.sh
 
+bindsym $mod+o mode "Launcher"
+
+mode "Launcher" {
+    bindsym c exec google-chrome
+    bindsym i exec idea
+    bindsym s exec slack
+    bindsym t exec teams
+    bindsym g exec gitkraken
+    bindsym p exec pavucontrol
+    bindsym f exec flameshot
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
