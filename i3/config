@@ -107,7 +107,7 @@ bindsym $mod+a focus parent
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:  Terminal"
-set $ws2 "2:  Intellij"
+set $ws2 "2:  Intellij"
 set $ws3 "3:  Chrome"
 set $ws4 "4:  Gitkraken"
 set $ws5 "5:  Slack"
@@ -213,6 +213,9 @@ for_window [class="Slack"] move to workspace $ws5
 for_window [class="Microsoft Teams - Preview"] move to workspace $ws6
 
 for_window [workspace=$ws2] layout stacking
+
+for_window [class="jetbrains-.*" title="win0"] floating enable
+for_window [class=".*"] [floating] move absolute position center
 
 # Set screen resolution & layout 
 # exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080
