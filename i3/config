@@ -143,10 +143,13 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
 # setup screen layout for external monitor
 bindsym $mod+Shift+x exec /home/mattshirlaw/.screenlayout/layout-home.sh
 
@@ -165,7 +168,7 @@ mode "Launcher" {
 }
 
 # resize window (you can also use the mouse for that)
-mode "resize" {
+mode "Resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
@@ -189,21 +192,36 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $mod+r mode "Resize"
+
+#### NIGHT OWL ####         border      background  text        indicator
+
+client.focused              #a2bffc     #a2bffc     #282828     #282828
+client.focused_inactive     #1d2021     #1d2021     #928374     #282828
+client.unfocused            #32302f     #32302f     #928374     #282828
+client.urgent               #cc241d     #cc241d     #ffffff     #282828
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status -c /home/mattshirlaw/.config/i3status/i3status.conf
-}
 
-# Move workspaces to external monitor
-# workspace $ws2 output DP-3
-# workspace $ws3 output DP-3
-# workspace $ws4 output DP-3
-# workspace $ws5 output DP-3
-# workspace $ws6 output DP-3
-# workspace $ws7 output DP-3
+        colors {
+            
+            #### NIGTH OWL ####
+
+            separator   #122d42
+            background  #011627
+            statusline  #5f7e97
+            
+            #                   border      background      text
+
+            focused_workspace   #a2bffc     #a2bffc         #011627
+            active_workspace    #5f7e97     #5f7e97         #011627
+            inactive_workspace  #011627     #011627         #5f7e97
+            urgent_workspace    #cc241d     #cc241d         #ffffff 
+    }
+}
 
 # Assign programs to workspaces
 for_window [class="jetbrains-idea"] move to workspace $ws2
@@ -212,14 +230,15 @@ for_window [class="GitKraken"] move to workspace $ws4
 for_window [class="Slack"] move to workspace $ws5
 for_window [class="Microsoft Teams - Preview"] move to workspace $ws6
 
+# Intellij should stack windows 
 for_window [workspace=$ws2] layout stacking
 
+# Intellij splash screen should open in the center 
 for_window [class="jetbrains-.*" title="win0"] floating enable
 for_window [class=".*"] [floating] move absolute position center
 
-# Set screen resolution & layout 
-# exec_always --no-startup-id xrandr --output eDP-1 --mode 1920x1080
-# exec_always --no-startup-id xrandr --output DP-3 --mode 1920x1080 --left-of eDP-1
+# Don't show edge borders on screen when there is only one window open
+hide_edge_borders smart
 
 # Set wallpaper
 exec_always --no-startup-id feh --bg-scale /home/mattshirlaw/Pictures/wallpapers/whistler.jpg
