@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sudo su - 
+snap-store.ubuntu-software
