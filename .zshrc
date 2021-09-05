@@ -131,6 +131,7 @@ alias prettier="node_modules/prettier/bin-prettier.js --config .prettierrc --wri
 alias k=kubectl
 alias tmux="tmux -2"
 alias vim=nvim
+alias vi=nvim
 
 complete -F __start_kubectl k
 

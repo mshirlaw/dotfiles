@@ -249,10 +249,11 @@ for_window [class=".*"] [floating] move absolute position center
 
 # Jetbrains toolbox
 for_window [class="jetbrains-toolbox"] border none 
-for_window [class="jetbrains-toolbox"] move absolute position center
+for_window [class="jetbrains-toolbox"] floating enable move left 330px,move down 70px
 
 # Open some windows as floating always 
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Pavucontrol"] border none
 for_window [class="Org.gnome.Software"] floating enable
 for_window [class="Org.gnome.Software"] border none
 
@@ -267,4 +268,7 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf -b
 
 # Start flameshot 
 exec_always --no-startup-id flameshot 
+
+# Start the authentication agent 
+exec_always --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
 

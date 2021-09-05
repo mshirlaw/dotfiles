@@ -1,0 +1,6 @@
+default_linemode devicons
+
+set tilde_in_titlebar true
+set hostname_in_titlebar false
+set draw_borders both
+set show_hidden true
