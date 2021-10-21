@@ -117,8 +117,8 @@ set $ws1 "1:  Slack"
 set $ws2 "2:  Chrome"
 set $ws3 "3:  Terminal"
 set $ws4 "4:  Intellij"
-set $ws5 "5:  Gitkraken"
-set $ws6 "6:  Teams"
+set $ws5 "5:  Teams"
+set $ws6 "6:  Gitkraken"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -237,8 +237,8 @@ bar {
 for_window [class="Slack"] move to workspace $ws1
 for_window [class="Google-chrome"] move to workspace $ws2
 for_window [class="jetbrains-idea"] move to workspace $ws4
-for_window [class="GitKraken"] move to workspace $ws5
-for_window [class="Microsoft Teams - Preview"] move to workspace $ws6
+for_window [class="Microsoft Teams - Preview"] move to workspace $ws5
+for_window [class="GitKraken"] move to workspace $ws6
 
 # Intellij should stack windows 
 for_window [workspace=$ws4] layout stacking
