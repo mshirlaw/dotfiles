@@ -9,10 +9,25 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+    " lsp & completion
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+    Plug 'hrsh7th/cmp-cmdline'
+    Plug 'hrsh7th/nvim-cmp'
+
+    " snippets
+    Plug 'SirVer/ultisnips'
+    Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+
     " nvim-telescope
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+
+    " nvim-treesitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     " theme
     Plug 'haishanh/night-owl.vim'
@@ -23,9 +38,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'junegunn/fzf.vim'
 
     " nerdtree
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'scrooloose/nerdtree'
-    
+"    Plug 'ryanoasis/vim-devicons'
+"    Plug 'scrooloose/nerdtree'
+ 
+    " nvmim tree
+    Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'kyazdani42/nvim-tree.lua'
+
     " git 
     Plug 'tpope/vim-fugitive'
 
@@ -34,8 +53,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
     " lsp
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'glepnir/lspsaga.nvim'
-    Plug 'hrsh7th/nvim-compe'
+"    Plug 'neovim/nvim-lspconfig'
+"    Plug 'glepnir/lspsaga.nvim'
+"    Plug 'hrsh7th/nvim-compe'
+
+    " run tests
+ "   Plug 'vim-test/vim-test'
+
+    " which key
+    Plug 'folke/which-key.nvim'
 
 call plug#end()

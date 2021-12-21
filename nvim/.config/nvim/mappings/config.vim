@@ -44,9 +44,9 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" nerdtree
-map <c-n>t :NERDTreeToggle<cr>
-nnoremap <c-n>f :NERDTreeFind<cr>
+" nvim tree
+map <c-n>t ::NvimTreeToggle<cr>
+nnoremap <c-n>f :NvimTreeFindFile<cr>
 
 "git fugitive
 nmap <leader>gs :G<CR>

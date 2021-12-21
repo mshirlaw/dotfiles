@@ -1,4 +1,4 @@
-" 10 July 2021
+" 10 Dec 2021 
 " init.vim
 " Matt Shirlaw
 
@@ -12,15 +12,20 @@ source $HOME/.config/nvim/syntax/config.vim
 source $HOME/.config/nvim/settings/config.vim
 
 " plugin specific lua settings 
-luafile $HOME/.config/nvim/nvim-compe/config.lua
+luafile $HOME/.config/nvim/nvim-treesitter/config.lua
+luafile $HOME/.config/nvim/nvim-tree/config.lua
 luafile $HOME/.config/nvim/nvim-telescope/config.lua
-luafile $HOME/.config/nvim/lspsaga/config.lua
+luafile $HOME/.config/nvim/which-key/config.lua
 luafile $HOME/.config/nvim/nvim-lspconfig/config.lua
+luafile $HOME/.config/nvim/nvim-cmp/config.lua
+
+" luafile $HOME/.config/nvim/nvim-compe/config.lua
+" luafile $HOME/.config/nvim/lspsaga/config.lua
 
 " plugin specific vim settings
 source $HOME/.config/nvim/fzf/config.vim
 source $HOME/.config/nvim/lightline/config.vim
-source $HOME/.config/nvim/nerdtree/config.vim
+" source $HOME/.config/nvim/nerdtree/config.vim
 source $HOME/.config/nvim/vim-prettier/config.vim
 
 " key bindings

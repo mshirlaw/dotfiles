@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+SUB_PROJECTS=($(cat settings.gradle | grep include | awk '{print $2}' | tr -d '"' | tr -d "'"))
+
+git checkout master && git pull
+
+for project in "${SUB_PROJECTS[@]}"; do
+    echo "INFO:  Checking project: ${project}..."
+    ./gradlew dependencies -p ${project} | grep log4j
+done
