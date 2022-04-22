@@ -23,10 +23,6 @@ nnoremap <leader>fn :lua require("mshirlaw.telescope").search_notes()<cr>
 " highlight all
 nnoremap <leader>ha ggVG
 
-" find and replace
-nnoremap <leader>ra *G :%s///g<left><left>
-nnoremap <leader>rc *G :%s///gc<left><left><left>
-
 " window switching
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
