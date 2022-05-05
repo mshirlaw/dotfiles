@@ -29,9 +29,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
 
-    " nvim-treesitter
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
     " theme
     Plug 'haishanh/night-owl.vim'
     Plug 'itchyny/lightline.vim'
@@ -50,6 +47,14 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " formatting
     Plug 'tpope/vim-commentary'
     Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+    " autopairs
+    Plug 'windwp/nvim-autopairs'
+
+    " js / jsx 
+    Plug 'maxmellon/vim-jsx-pretty'  
+    Plug 'pangloss/vim-javascript'  
+    Plug 'alvan/vim-closetag'
 
 call plug#end()
 
@@ -116,7 +121,6 @@ let g:loaded_perl_provider = 0
 
 " plugin specific lua settings 
 
-luafile $HOME/.config/nvim/nvim-treesitter/config.lua
 luafile $HOME/.config/nvim/nvim-tree/config.lua
 luafile $HOME/.config/nvim/nvim-telescope/config.lua
 luafile $HOME/.config/nvim/nvim-lspconfig/config.lua
@@ -147,6 +151,25 @@ let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 let g:prettier#autoformat_config_present = 1
 let g:prettier#exec_cmd_async = 1
+
+" javascript / jsx
+
+let g:javascript_plugin_jsdoc = 1
+let g:jsx_ext_required = 0
+
+let g:closetag_filenames = '*.tsx,*.xhtml,*.html'
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+
+" autopairs
+
+lua << EOF
+require('nvim-autopairs').setup{}
+EOF
 
 " key bindings
 
