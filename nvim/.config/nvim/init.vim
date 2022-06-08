@@ -40,13 +40,17 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " nvmim tree
     Plug 'kyazdani42/nvim-web-devicons'
     Plug 'kyazdani42/nvim-tree.lua'
-
+    
     " git 
     Plug 'tpope/vim-fugitive'
+    Plug 'lewis6991/gitsigns.nvim'
 
     " formatting
     Plug 'tpope/vim-commentary'
     Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+    
+    " errors
+    Plug 'folke/trouble.nvim'
 
     " autopairs
     Plug 'windwp/nvim-autopairs'
@@ -168,7 +172,9 @@ let g:closetag_regions = {
 " autopairs
 
 lua << EOF
-require('nvim-autopairs').setup{}
+require("trouble").setup()
+require('nvim-autopairs').setup()
+require('gitsigns').setup()
 EOF
 
 " key bindings
