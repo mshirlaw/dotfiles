@@ -8,7 +8,7 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Nvim Cmp capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 vim.diagnostic.config({
     virtual_text = {
@@ -61,16 +61,18 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-local servers = { "tsserver", "bashls", "jsonls", "html", "cssls", "vimls", "yamlls" }
+local servers = { "jsonls", "tsserver", "bashls", "html", "cssls" }
+
+local lsp_flags = {
+  -- This will be the default in neovim 0.7+
+  debounce_text_changes = 150,
+}
 
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    flags = {
-      -- This will be the default in neovim 0.7+
-      debounce_text_changes = 150,
-    }
+    flags = lsp_flags, 
   }
 end
 

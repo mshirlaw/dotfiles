@@ -9,8 +9,8 @@ export ZSH="/$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="dracula"
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="dracula"
 
 # to hide the default user from the prompt
 # DEFAULT_USER=mattshirlaw
@@ -75,8 +75,8 @@ ZSH_THEME="dracula"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git 
-	zsh-autosuggestions
+  git 
+  zsh-autosuggestions
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -95,6 +95,8 @@ else
   export EDITOR='nvim'
 fi
 
+export TERM=xterm-256color
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -107,7 +109,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
@@ -121,30 +123,18 @@ alias docker-prune-network="docker network prune -f"
 alias docker-prune-system="docker system prune -f"
 alias docker-prune-all="docker image prune -f && docker network prune -f && docker system prune -f"
 
-# finocomp specific aliases
-alias clean-out="find . -type d -name out | xargs rm -rf; rm -rf webui/node_modules"
-alias clean-assemble="./gradlew clean assemble"
-alias build-image="./gradlew buildImage"
-alias start-dev="./gradelw e2e:startDevEnvironment"
-alias e2e="./gradlew e2e:test"
 alias prettier="node_modules/prettier/bin-prettier.js --config .prettierrc --write"
-alias k=kubectl
+
 alias tmux="tmux -2"
 alias vim=nvim
 alias vi=nvim
 
-complete -F __start_kubectl k
+alias uat="ssh -L 9095:localhost:9095 -L 9091:localhost:9091 -L 6200:localhost:6200 -L 10013:localhost:10013 -L 10086:localhost:10086 hyperanna@matt.dev.hyperanna.com"
 
-export BAT_THEME="Dracula"
-export FZF_DEFAULT_COMMAND="ag --no-color --path-to-ignore ~/.ignore --hidden -g ''"
+export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-case"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export PATH=$HOME/.local/bin:$PATH
-
-if [[ "$(uname -s)" == "Linux" ]];
-then
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
-
-JAVA_HOME=$HOME/.sdkman/candidates/java/current
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -152,10 +142,3 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/$HOME/.sdkman"
 [[ -s "/$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "/$HOME/.sdkman/bin/sdkman-init.sh"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mattshirlaw/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mattshirlaw/Desktop/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/mattshirlaw/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/mattshirlaw/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
-fpath+=${ZDOTDIR:-~}/.zsh_functions

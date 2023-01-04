@@ -1,6 +1,4 @@
-" 4 May 2022 
-" init.vim
-" Matt Shirlaw
+" 4 May 2022 init.vim Matt Shirlaw
 
 " plugins
 
@@ -66,9 +64,9 @@ call plug#end()
 
 " syntax highlighting and color scheme
 
-if (has("termguicolors"))
-    set termguicolors
-endif
+" if (has("termguicolors"))
+"     set termguicolors
+" endif
 
 augroup syntax_highlight
 	autocmd!
@@ -106,9 +104,11 @@ set relativenumber
 set splitbelow
 set splitright
 set termguicolors
-set ts=4 sw=4 expandtab
+set ts=2 sw=2 expandtab
 set wildmenu
 set wrap!
+
+autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc
 
 " set directory for tmp files
 
@@ -241,3 +241,4 @@ nnoremap <c-n>f :NvimTreeFindFile<cr>
 nmap <leader>gs :G<CR>
 nmap <leader>gf :Gdiffsplit<cr>
 nmap <leader>gb :Git blame<cr>
+
