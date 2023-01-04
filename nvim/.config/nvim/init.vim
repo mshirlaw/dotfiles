@@ -60,6 +60,8 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'pangloss/vim-javascript'  
     Plug 'alvan/vim-closetag'
 
+    Plug 'wakatime/vim-wakatime'
+
 call plug#end()
 
 " syntax highlighting and color scheme
