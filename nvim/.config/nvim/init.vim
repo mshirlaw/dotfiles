@@ -1,4 +1,6 @@
-" 4 May 2022 init.vim Matt Shirlaw
+" 4 May 2022 
+" init.vim 
+" Matt Shirlaw
 
 " plugins
 
