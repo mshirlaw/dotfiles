@@ -7,10 +7,6 @@ echo
 
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-# TODO this is broken
-# git clone https://github.com/dracula/zsh.git $HOME/dotfiles/zsh
-# ln -s $HOME/dotfiles/zsh/dracula.zsh-theme $HOME/.oh-my-zsh/themes/dracula.zsh-theme
-
 # install homebrew on mac
 
 echo "INFO:  Installing Homebrew"

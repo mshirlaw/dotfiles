@@ -10,7 +10,6 @@ export ZSH="/$HOME/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
 ZSH_THEME="robbyrussell"
-# ZSH_THEME="dracula"
 
 # to hide the default user from the prompt
 # DEFAULT_USER=mattshirlaw
@@ -108,8 +107,6 @@ export TERM=xterm-256color
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# source <(kubectl completion zsh)
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
