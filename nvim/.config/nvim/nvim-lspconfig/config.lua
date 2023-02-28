@@ -61,18 +61,20 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-local servers = { "jsonls", "tsserver", "bashls", "html", "cssls" }
+local servers = {"eslint", "jsonls", "tsserver", "bashls", "html", "cssls" }
 
 local lsp_flags = {
   -- This will be the default in neovim 0.7+
   debounce_text_changes = 150,
 }
 
+local util = require 'lspconfig/util'
+
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
     flags = lsp_flags, 
+    root_dir = util.root_pattern('.git'),
   }
 end
-

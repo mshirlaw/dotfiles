@@ -61,7 +61,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'alvan/vim-closetag'
 
     Plug 'wakatime/vim-wakatime'
-
+    
 call plug#end()
 
 " syntax highlighting and color scheme
@@ -163,7 +163,6 @@ let g:prettier#exec_cmd_async = 1
 " javascript / jsx
 
 let g:javascript_plugin_jsdoc = 1
-let g:jsx_ext_required = 0
 
 let g:closetag_filenames = '*.tsx,*.xhtml,*.html'
 let g:closetag_regions = {
@@ -173,13 +172,16 @@ let g:closetag_regions = {
     \ 'javascriptreact': 'jsxRegion',
     \ }
 
-" autopairs
-
 lua << EOF
+require'lspconfig'.eslint.setup{}
 require("trouble").setup()
 require('nvim-autopairs').setup()
 require('gitsigns').setup()
 EOF
+
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
+
+autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
 
 " key bindings
 

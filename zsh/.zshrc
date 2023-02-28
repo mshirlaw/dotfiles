@@ -76,6 +76,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git 
   zsh-autosuggestions
+#  zsh-wakatime
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -127,6 +128,8 @@ alias vim=nvim
 alias vi=nvim
 
 alias uat="ssh -L 9095:localhost:9095 -L 9091:localhost:9091 -L 6200:localhost:6200 -L 10013:localhost:10013 -L 10086:localhost:10086 hyperanna@matt.dev.hyperanna.com"
+alias gco="git checkout \$(git branch | fzf)"
+alias gdb="git branch -D \$(git branch | fzf)"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-case"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

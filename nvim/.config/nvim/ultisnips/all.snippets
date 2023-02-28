@@ -1,0 +1,148 @@
+# Debug
+snippet log "console.log"
+console.log(${0})
+endsnippet
+
+# Functions
+snippet func "function"
+function ${1:helloWorld}(${2:params}) {
+	${0}
+}
+endsnippet
+
+snippet async "async function"
+async function ${1:functionName}(${2:params}) {
+	${0:// body...}
+}
+endsnippet
+
+snippet afe "arrow function expression"
+(${1}) => ${0}
+endsnippet
+
+snippet afunc "arrow function"
+(${1}) => {
+	${0}
+}
+endsnippet
+
+snippet iife "immediately invoked function expression"
+(function(${1}) {
+	${0}
+}(${2}));
+endsnippet
+
+# Conditionals
+snippet if "if () {}"
+if (${1:true}) {
+	${2}
+}${0}
+endsnippet
+
+snippet else "else {}"
+else {
+	${0}
+}
+endsnippet
+
+snippet elif "else if () {}"
+else if (${1:true}) {
+	${2}
+}${0}
+endsnippet
+
+# Classes
+snippet class "ES6 class"
+class ${1:ClassName} {
+	${0}
+}
+endsnippet
+
+# Variables and objects
+snippet const "constant assignment"
+const ${1} = ${0};
+endsnippet
+
+snippet let "let expression"
+let ${1} = ${0};
+endsnippet
+
+snippet obj "create object"
+{
+	${0}
+}
+endsnippet
+
+snippet kv "key : value"
+${1:key}: '${0:value}',
+endsnippet
+
+snippet arr "array"
+[${0}]
+endsnippet
+
+# Modules
+snippet import "import statement"
+import ${1} from '${2}';
+endsnippet
+
+snippet require "require()"
+require('${0}');
+endsnippet
+
+snippet mexp "module.exports expression"
+module.exports = ${0}
+endsnippet
+
+# React
+snippet rfc "react functional component"
+import React from 'react';
+import PropTypes from 'prop-types';
+
+const ${1:Component} = () => {
+
+	return (
+		<div>${0}</div>
+	);
+};
+
+export default $1;
+endsnippet
+
+snippet rcc "react class component"
+import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
+
+class ${1:Component} extends PureComponent {
+	static propTypes = {
+		${0}
+	};
+	
+	render() {
+		return (
+			<div>${2}</div>
+		);
+	}
+}
+
+export default $1;
+endsnippet
+
+# React testing
+snippet descr "describe block"
+describe('${1}', () => {
+	${0}
+});
+endsnippet
+
+snippet test "test block"
+test('${1}', () => {
+	${0}
+});
+endsnippet
+
+snippet expect "expect block"
+expect(${1}).to${0};
+endsnippet
+
+
