@@ -61,7 +61,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
-local servers = {"eslint", "jsonls", "tsserver", "bashls", "html", "cssls" }
+local servers = { "jsonls", "tsserver", "bashls", "html", "cssls" }
 
 local lsp_flags = {
   -- This will be the default in neovim 0.7+
@@ -78,3 +78,13 @@ for _, lsp in pairs(servers) do
     root_dir = util.root_pattern('.git'),
   }
 end
+
+
+require('lspconfig')['eslint'].setup {
+  on_attach = function(client, bufnr)
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      buffer = bufnr,
+      command = "EslintFixAll",
+    })
+  end,
+}

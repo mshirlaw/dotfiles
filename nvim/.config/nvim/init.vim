@@ -172,8 +172,9 @@ let g:closetag_regions = {
     \ 'javascriptreact': 'jsxRegion',
     \ }
 
+" require'lspconfig'.eslint.setup{}
+
 lua << EOF
-require'lspconfig'.eslint.setup{}
 require("trouble").setup()
 require('nvim-autopairs').setup()
 require('gitsigns').setup()
@@ -181,7 +182,7 @@ EOF
 
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 
-autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
+" autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
 
 " key bindings
 
