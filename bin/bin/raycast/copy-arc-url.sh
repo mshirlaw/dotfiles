@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title Copy Current Page URL
+# @raycast.title Copy Current Arc URL
 # @raycast.mode silent
 # @raycast.packageName Arc
 #

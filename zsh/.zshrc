@@ -131,6 +131,15 @@ alias uat="ssh -L 9095:localhost:9095 -L 9091:localhost:9091 -L 6200:localhost:6
 alias gco="git checkout \$(git branch | fzf)"
 alias gdb="git branch -D \$(git branch | fzf)"
 
+# Trifacta 
+export TRIFACTA_CONF=$HOME/Documents/alteryx/trifacta-ayx-cloud/conf
+export TRIFACTA_HOME=$HOME/Documents/alteryx/trifacta-ayx-cloud
+export TRIFACTA_CONFIG_HOME=$HOME/Documents/alteryx/trifacta-ayx-cloud
+
+export TRIFACTA_PYTHON_VIRTUALENV=$HOME/.virtualenvs/trifacta-env
+ 
+source ${TRIFACTA_HOME}/bin/dev-only/dev-macos-helpers.sh
+
 export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-case"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -158,3 +167,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
