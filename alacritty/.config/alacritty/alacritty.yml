@@ -358,8 +358,3 @@ colors:
 #  cyan:    '#70c0b1'
 #  white:   '#ea
 
-key_bindings:
-  - key: F
-    mods: Command|Shift
-    action: SendFunctionKey
-    value: F13
