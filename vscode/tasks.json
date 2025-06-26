@@ -1,0 +1,75 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "(frontend) test: all",
+      "type": "shell",
+      "command": "npm run test -w src",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "(simulator) test: all",
+      "type": "shell",
+      "command": "npm run test -w simulator",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "(frontend) test: coverage",
+      "type": "shell",
+      "command": "npm run test:coverage -w src",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "(simulator) test: coverage",
+      "type": "shell",
+      "command": "npm run test:coverage -w simulator",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "(frontend) test: watch all",
+      "type": "shell",
+      "command": "npm run test:watch -w src",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "(simulator) test: watch all",
+      "type": "shell",
+      "command": "npm run test:watch -w simulator",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "(frontend) test: current file",
+      "type": "shell",
+      "command": "npm run test -w src -t ${file}",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "(simulator) test: current file",
+      "type": "shell",
+      "command": "npm run test -w simulator -t ${file}",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "(frontend) test: watch current file",
+      "type": "shell",
+      "command": "npm run test:watch -w src -t ${file}",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "(simulator) test: watch current file",
+      "type": "shell",
+      "command": "npm run test:watch -w simulator -t ${file}",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

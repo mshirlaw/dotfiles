@@ -9,10 +9,18 @@
 
 local wk = require("which-key")
 
-wk.register({
-  y = {
-    name = "yank",
-    r = { '<cmd>let @+ = expand("%")<cr>', "Relative path" },
-    f = { '<cmd>let @+ = expand("%:p")<cr>', "Full path" },
-  },
-}, { prefix = "<leader>" })
+wk.add({
+  { "<leader>y", group = "yank" },
+  { "<leader>yf", '<cmd>let @+ = expand("%:p")<cr>', desc = "Full path" },
+  { "<leader>yr", '<cmd>let @+ = expand("%")<cr>', desc = "Relative path" },
+})
+
+-- currently the TAB binding is used by something else so
+-- unless we set a custom binding, we can't use it
+vim.keymap.set("i", "<C-J>", 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true
+
+

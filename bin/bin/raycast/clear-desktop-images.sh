@@ -10,7 +10,9 @@
 # @raycast.icon 🗑️
 
 # Documentation:
-# @raycast.description Delete all .png files on the Desktop.
+# @raycast.description Delete all .png & .mov files on the Desktop.
 
 rm -r $HOME/Desktop/**.png
+rm -r $HOME/Desktop/**.mov
 echo "Images Deleted"
+

@@ -1,5 +1,6 @@
 {
     "diagnostics.globals": [
-        "is_dashboard_buffer"
+        "is_dashboard_buffer",
+        "use"
     ]
 }

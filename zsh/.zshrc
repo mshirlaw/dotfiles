@@ -130,6 +130,7 @@ alias vi=nvim
 alias uat="ssh -L 9095:localhost:9095 -L 9091:localhost:9091 -L 6200:localhost:6200 -L 10013:localhost:10013 -L 10086:localhost:10086 hyperanna@matt.dev.hyperanna.com"
 alias gco="git checkout \$(git branch | fzf)"
 alias gdb="git branch -D \$(git branch | fzf)"
+alias ktlint="ktlint --format --baseline=./ktlint-baseline.xml --editorconfig=$HOME/ktlint/.editorconfig"
 
 # Trifacta 
 export TRIFACTA_CONF=$HOME/Documents/alteryx/trifacta-ayx-cloud/conf
@@ -151,20 +152,5 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/$HOME/.sdkman"
 [[ -s "/$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "/$HOME/.sdkman/bin/sdkman-init.sh"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/matt.shirlaw/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/matt.shirlaw/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/matt.shirlaw/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/matt.shirlaw/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
