@@ -4,4 +4,4 @@
 
 vim.g.mapleader = ","
 vim.opt.background = "dark"
-vim.g.colors_name = "night-owl"
+vim.g.colors_name = "catppuccin-mocha"

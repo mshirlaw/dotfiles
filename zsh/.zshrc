@@ -132,15 +132,6 @@ alias gco="git checkout \$(git branch | fzf)"
 alias gdb="git branch -D \$(git branch | fzf)"
 alias ktlint="ktlint --format --baseline=./ktlint-baseline.xml --editorconfig=$HOME/ktlint/.editorconfig"
 
-# Trifacta 
-export TRIFACTA_CONF=$HOME/Documents/alteryx/trifacta-ayx-cloud/conf
-export TRIFACTA_HOME=$HOME/Documents/alteryx/trifacta-ayx-cloud
-export TRIFACTA_CONFIG_HOME=$HOME/Documents/alteryx/trifacta-ayx-cloud
-
-export TRIFACTA_PYTHON_VIRTUALENV=$HOME/.virtualenvs/trifacta-env
- 
-source ${TRIFACTA_HOME}/bin/dev-only/dev-macos-helpers.sh
-
 export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-case"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -153,4 +144,3 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 export SDKMAN_DIR="/$HOME/.sdkman"
 [[ -s "/$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "/$HOME/.sdkman/bin/sdkman-init.sh"
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh

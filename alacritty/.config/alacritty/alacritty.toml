@@ -1,6 +1,6 @@
-[colors.primary]
-background = "#011627"
-foreground = "#c5c8c6"
+
+[env]
+TERM = "xterm-256color"
 
 [font]
 size = 12.0
@@ -16,3 +16,6 @@ opacity = 1.0
 option_as_alt = "Both"
 startup_mode = "Maximized"
 title = "Alacritty"
+
+[general]
+import = ["/Users/mshirlaw/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
