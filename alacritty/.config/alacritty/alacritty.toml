@@ -18,4 +18,4 @@ startup_mode = "Maximized"
 title = "Alacritty"
 
 [general]
-import = ["/Users/mshirlaw/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
+import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
