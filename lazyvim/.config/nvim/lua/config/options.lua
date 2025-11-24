@@ -5,3 +5,4 @@
 vim.g.mapleader = ","
 vim.opt.background = "dark"
 vim.g.colors_name = "catppuccin-mocha"
+vim.o.autoread = true
