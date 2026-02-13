@@ -6,3 +6,10 @@
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
   command = "checktime",
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { ".env", ".env.*", "*.env" },
+  callback = function()
+    vim.bo.filetype = "dotenv"
+  end,
+})

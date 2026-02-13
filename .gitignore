@@ -9,4 +9,6 @@ nvim/autoload/plugged/
 [._]ss[a-gi-z]
 [._]sw[a-p]
 *~
+
+bin/bin/env-connect
 **/**/lazy-lock.json

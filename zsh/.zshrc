@@ -114,6 +114,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 # vim and zsh 
 alias ezsh="vim ~/.zshrc"
 alias evim="vim ~/.vimrc"
+alias oc="opencode"
+alias clc="ANTHROPIC_AUTH_TOKEN=ollama ANTHROPIC_BASE_URL=http://localhost:11434 claude"
 
 # docker aliases
 alias docker-prune-image="docker image prune -f"
@@ -136,6 +138,7 @@ export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-case"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PATH=$HOME/.local/bin:$PATH
+export PATH="$HOME/bin:$PATH"
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
