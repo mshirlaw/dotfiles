@@ -20,6 +20,7 @@ This repository currently provides configuration for:
 * **iterm2** - macOS terminal emulator
 * **lazyvim** - LazyVim configuration
 * **nvim** - Neovim editor
+* **opencode** - OpenCode CLI configuration
 * **ranger** - File manager
 * **rofi** - Application launcher
 * **skhd** - Hotkey daemon for macOS
