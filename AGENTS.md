@@ -5,6 +5,7 @@
 This repository uses GNU Stow for dotfiles management. Each top-level directory (e.g., `nvim/`, `tmux/`, `zsh/`) represents a "stow package" that mirrors the structure it should have in your home directory. Configuration files are organized by application:
 
 - **nvim/.config/nvim/** - Neovim editor configuration with LSP, completion, and plugins
+- **opencode/.config/opencode/** - OpenCode CLI configuration for AI assistant permissions
 - **tmux/** - Terminal multiplexer configuration with Catppuccin theme
 - **zsh/** - Z shell configuration with oh-my-zsh integration
 - **alacritty/.config/alacritty/** - Terminal emulator settings
@@ -148,6 +149,10 @@ dotfiles/
 │           ├── nvim-telescope/ # Fuzzy finder config
 │           ├── nvim-tree/      # File tree config
 │           └── ultisnips/      # Snippet definitions
+├── opencode/                 # OpenCode CLI configuration
+│   └── .config/
+│       └── opencode/
+│           └── opencode.json # AI assistant permissions config
 ├── ranger/                     # File manager configuration
 ├── rofi/                       # Application launcher (Linux)
 ├── skhd/                       # Hotkey daemon (macOS)
@@ -187,6 +192,7 @@ dotfiles/
 | `install.sh` | Automated dependency installer | Setting up new machine, adding new dependencies |
 | `README.md` | Comprehensive setup documentation | Understanding how to use the repository |
 | `nvim/.config/nvim/init.vim` | Neovim main configuration | Changing editor settings, adding plugins |
+| `opencode/.config/opencode/opencode.json` | OpenCode CLI permissions | Configuring AI assistant tool permissions |
 | `tmux/.tmux.conf` | Tmux configuration | Customizing terminal multiplexer behavior |
 | `zsh/.zshrc` | Zsh shell configuration | Adding aliases, changing shell behavior |
 | `alacritty/.config/alacritty/alacritty.toml` | Terminal emulator settings | Changing font, colors, opacity |
@@ -330,4 +336,4 @@ export SDKMAN_DIR="/$HOME/.sdkman"          # SDKMAN installation directory
 ---
 
 *Update to last commit: 9c8c9b1568129f147da68eb7aeb31a26a312fe24*
-*Last updated: 2025-11-24*
+*Last updated: 2026-02-22*
