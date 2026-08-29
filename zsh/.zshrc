@@ -149,3 +149,13 @@ export SDKMAN_DIR="/$HOME/.sdkman"
 
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Added by Antigravity
+export PATH="/Users/mshirlaw/.antigravity/antigravity/bin:$PATH"
+
+source "$HOME/.cargo/env"
+export PATH="/opt/homebrew/bin:$PATH"
+
+# >>> railway initialize >>>
+source "$HOME/.railway/env"
+# <<< railway initialize <<<
