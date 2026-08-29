@@ -161,7 +161,8 @@ export SDKMAN_DIR="/$HOME/.sdkman"
 
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-eval "$(jenv init - zsh)"
+
+[[ -s jenv ]] && eval "$(jenv init - zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
@@ -169,4 +170,10 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
 export PATH="$PATH:/Users/matt.shirlaw/Documents/alteryx/backend-dev-tools/run-against-aac"
+
+# Added by Antigravity
+export PATH="/Users/mshirlaw/.antigravity/antigravity/bin:$PATH"
+
+source "$HOME/.cargo/env"
+export PATH="/opt/homebrew/bin:$PATH"
 
