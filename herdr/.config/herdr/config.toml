@@ -13,4 +13,6 @@ position = "top-right"
 [keys]
 split_vertical = ["prefix+v", "prefix+|", "prefix+\""]
 split_horizontal = ["prefix+minus", "prefix+percent"]
-switch_workspace = "prefix+shift+1..9"
+switch_workspace = "prefix+alt+1..9"
+previous_workspace = "prefix+alt+["
+next_workspace = "prefix+alt+]"
