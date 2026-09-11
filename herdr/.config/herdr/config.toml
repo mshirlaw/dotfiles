@@ -3,6 +3,19 @@ onboarding = false
 [ui]
 pane_borders = "always"
 pane_outer_borders = true
+status_indicators = "symbols"
+
+[ui.sidebar.spaces]
+rows = [
+  [
+    "state_icon",
+    { token = "workspace", bold = true },
+  ],
+  [
+    { token = "branch", fg = "#89b4fa" },
+    "git_status",
+  ],
+]
 
 [ui.toast]
 delivery = "herdr"
