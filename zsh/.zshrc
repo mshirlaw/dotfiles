@@ -129,10 +129,22 @@ alias tmux="tmux -2"
 alias vim=nvim
 alias vi=nvim
 
-alias uat="ssh -L 9095:localhost:9095 -L 9091:localhost:9091 -L 6200:localhost:6200 -L 10013:localhost:10013 -L 10086:localhost:10086 hyperanna@matt.dev.hyperanna.com"
 alias gco="git checkout \$(git branch | fzf)"
 alias gdb="git branch -D \$(git branch | fzf)"
 alias ktlint="ktlint --format --baseline=./ktlint-baseline.xml --editorconfig=$HOME/ktlint/.editorconfig"
+
+gemini() {
+  GOOGLE_CLOUD_PROJECT="gemini-enterprise-prod-9699" \
+  GOOGLE_CLOUD_LOCATION="global" \
+  command gemini "$@"
+}
+
+ff() {
+  aerospace list-windows --all | fzf --bind 'enter:execute(bash -c "aerospace focus --window-id ${1}")+abort'; clear;
+}
+
+# source any local env vars if they exist
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --ignore-case"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -149,3 +161,12 @@ export SDKMAN_DIR="/$HOME/.sdkman"
 
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+eval "$(jenv init - zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+export PATH="$PATH:/Users/matt.shirlaw/Documents/alteryx/backend-dev-tools/run-against-aac"
+
