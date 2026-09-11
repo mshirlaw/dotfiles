@@ -109,7 +109,7 @@ cd "$HOME/dotfiles" || {
 echo "INFO: Setting up configuration directories"
 echo
 
-STOW_PACKAGES=("alacritty" "nvim" "tmux" "zsh")
+STOW_PACKAGES=("alacritty" "gh" "herdr" "nvim" "tmux" "zed" "zsh")
 
 for package in "${STOW_PACKAGES[@]}"; do
     if [[ -d "$package" ]]; then
