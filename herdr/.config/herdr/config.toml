@@ -11,5 +11,5 @@ delivery = "herdr"
 position = "top-right"
 
 [keys]
-split_vertical = ["prefix+v", "prefix+|"]
+split_vertical = ["prefix+v", "prefix+|", "prefix+\""]
 split_horizontal = ["prefix+minus", "prefix+percent"]
