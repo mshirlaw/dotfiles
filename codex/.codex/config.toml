@@ -1,5 +1,9 @@
 model = "gpt-5.3-codex"
-model_reasoning_effort = "xhigh"
+model_reasoning_effort = "high"
+allow_login_shell = false
+
+approval_policy = "on-request"
+sandbox_mode = "read-only"
 
 [projects."/Users/matt.shirlaw/Documents/alteryx/anna-frontend"]
 trust_level = "trusted"
@@ -7,7 +11,59 @@ trust_level = "trusted"
 [projects."/Users/matt.shirlaw/dotfiles"]
 trust_level = "trusted"
 
-approval_policy = "on-request"
-sandbox_mode = "read-only"
-allow_login_shell = false
+[projects."/Users/matt.shirlaw/Documents/alteryx/confluence-mcp"]
+trust_level = "trusted"
 
+[projects."/Users/matt.shirlaw/Documents/alteryx/aoa-desktop-playwright-poc"]
+trust_level = "trusted"
+
+[projects."/Users/matt.shirlaw/Documents/alteryx/admin-portal"]
+trust_level = "trusted"
+
+[projects."/Users/matt.shirlaw/Documents/other/obsidian-vault"]
+trust_level = "trusted"
+
+[projects."/Users/matt.shirlaw/Documents/work/hackathon"]
+trust_level = "trusted"
+
+[projects."/Users/matt.shirlaw/Desktop"]
+trust_level = "trusted"
+
+[projects."/Users/matt.shirlaw/Documents/alteryx"]
+trust_level = "trusted"
+
+[projects."/Users/matt.shirlaw/Documents/alteryx/insights-mcp"]
+trust_level = "trusted"
+
+[projects."/Users/matt.shirlaw/Documents/other/caveman"]
+trust_level = "trusted"
+
+[mcp_servers.atlassian]
+url = "https://mcp.atlassian.com/v1/mcp"
+
+[mcp_servers.drawio]
+command = "drawio-mcp"
+
+[notice]
+hide_rate_limit_model_nudge = true
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
+
+[plugins."slack@openai-curated"]
+enabled = true
+
+[plugins."caveman@caveman-repo"]
+enabled = true
+
+
+[profiles.ollama-launch]
+openai_base_url = "http://127.0.0.1:11434/v1/"
+forced_login_method = "api"
+model_provider = "ollama-launch"
+[model_providers.ollama-launch]
+name = "Ollama"
+base_url = "http://127.0.0.1:11434/v1/"
+
+[features]
+codex_hooks = true

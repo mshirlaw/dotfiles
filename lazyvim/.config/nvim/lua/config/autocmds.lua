@@ -13,3 +13,22 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.bo.filetype = "dotenv"
   end,
 })
+
+-- Ensure ESLint auto-fixes (including code-action-based fixes) run on save.
+local eslint_fix_group = vim.api.nvim_create_augroup("LazyVimEslintFixAllOnSave", { clear = true })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if not client or client.name ~= "eslint" then
+      return
+    end
+
+    vim.api.nvim_clear_autocmds({ group = eslint_fix_group, buffer = args.buf })
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      group = eslint_fix_group,
+      buffer = args.buf,
+      command = "silent! LspEslintFixAll",
+    })
+  end,
+})

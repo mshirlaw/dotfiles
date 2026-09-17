@@ -1,0 +1,31 @@
+onboarding = false
+
+[ui]
+pane_borders = "always"
+pane_outer_borders = true
+status_indicators = "symbols"
+
+[ui.sidebar.spaces]
+rows = [
+  [
+    "state_icon",
+    { token = "workspace", bold = true },
+  ],
+  [
+    { token = "branch", fg = "#89b4fa" },
+    "git_status",
+  ],
+]
+
+[ui.toast]
+delivery = "herdr"
+
+[ui.toast.herdr]
+position = "top-right"
+
+[keys]
+split_vertical = ["prefix+v", "prefix+|", "prefix+\""]
+split_horizontal = ["prefix+minus", "prefix+percent"]
+switch_workspace = "prefix+alt+1..9"
+previous_workspace = "prefix+alt+["
+next_workspace = "prefix+alt+]"
