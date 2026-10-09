@@ -1,0 +1,4 @@
+theme = catppuccin-mocha.conf
+font-feature = -dlig
+font-feature = -liga
+font-feature = -calt
