@@ -19,6 +19,7 @@ COMMANDS = (
     ('--add "<title>" [list]', "same as the first form"),
     ("--lists", "print list names"),
     ("--show [list]", "print open cards, optionally for one list"),
+    ("--show --json", "print every list and card, with ids, as JSON"),
     ('--move "<card>" <list>', "move a card to a list"),
     ('--done "<card>"', "move a card to Done"),
     ('--rename "<card>" "<new title>"', "rename a card"),
@@ -37,8 +38,8 @@ DESCRIPTION = (
     f"Commands:\n{format_commands(COMMANDS)}"
 )
 EPILOG = """\
-<card> is a case-insensitive substring of the card title. It must match
-exactly one open card.
+<card> is a card id, or a case-insensitive substring of the card title that
+matches exactly one open card.
 
 Trello's personal Inbox panel is not writable with a classic key/token (401).
 
@@ -52,7 +53,7 @@ ACTIONS = ("add", "lists", "show", "move", "done", "rename", "delete")
 
 
 LIST_FLAGS = ("-l", "--list")
-COMMAND_FLAGS = frozenset({f"--{action}" for action in ACTIONS} | {"-h", "--help"})
+COMMAND_FLAGS = frozenset({f"--{action}" for action in ACTIONS} | {"-h", "--help", "--json"})
 
 
 def split_list_option(argv: Sequence[str]) -> tuple[list[str], list[str]]:
@@ -103,6 +104,7 @@ def build_parser() -> argparse.ArgumentParser:
     group.add_argument("--rename", nargs=2, metavar="ARG", **hidden)
     group.add_argument("--delete", metavar="CARD", **hidden)
     parser.add_argument("-l", "--list", dest="list_name", metavar="LIST", **hidden)
+    parser.add_argument("--json", action="store_true", **hidden)
     return parser
 
 
@@ -145,6 +147,8 @@ def run(
         return commands.add_card(client, *add_request)
     if action == "lists":
         return commands.list_names(client)
+    if action == "show" and args.json:
+        return commands.show_json(client, settings)
     if action == "show":
         width = shutil.get_terminal_size((100, 24)).columns
         colour = sys.stdout.isatty() and "NO_COLOR" not in os.environ
@@ -164,6 +168,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     action = selected_action(args)
     if action is None:
         parser.error("no command given, see --help")
+    if args.json and action != "show":
+        parser.error("--json only applies to --show")
     if args.list_name and action != "add":
         parser.error("-l only applies when adding a card")
     try:

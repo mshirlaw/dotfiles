@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+import json
 from typing import Optional
 
 from .client import TrelloClient
+from .config import Settings
 from .lookup import find_card, find_list
 from .render import format_board
 
@@ -29,6 +31,29 @@ def show_board(
     if list_name:
         return format_board([find_list(lists, list_name)], width, colour)
     return format_board([item for item in lists if item.cards], width, colour)
+
+
+def show_json(client: TrelloClient, settings: Settings) -> str:
+    """Every list, including empty ones, with card ids and urls, for other programs."""
+    lists = client.get_lists_with_cards()
+    return json.dumps(
+        {
+            "default_list": settings.default_list,
+            "done_list": settings.done_list,
+            "lists": [
+                {
+                    "id": item.id,
+                    "name": item.name,
+                    "cards": [
+                        {"id": card.id, "name": card.name, "url": card.url}
+                        for card in item.cards
+                    ],
+                }
+                for item in lists
+            ],
+        },
+        indent=2,
+    )
 
 
 def move_card(client: TrelloClient, query: str, list_name: str) -> str:

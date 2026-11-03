@@ -18,7 +18,10 @@ def find_list(lists: Sequence[TrelloList], name: str) -> TrelloList:
 
 
 def find_card(cards: Sequence[Card], query: str) -> Card:
-    """Return the single card whose title contains the query, ignoring case."""
+    """Return the card with this exact id, else the single card whose title contains the query."""
+    for card in cards:
+        if card.id == query:
+            return card
     matches = [card for card in cards if query.lower() in card.name.lower()]
     if not matches:
         raise TrelloTodoError(f"No open card matches '{query}'")
