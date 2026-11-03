@@ -1,0 +1,60 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "trello-todo",
+  "title": "Trello Todo",
+  "description": "Browse, add and manage the cards on my Trello board using the trello-todo CLI.",
+  "icon": "command-icon.png",
+  "author": "matt_shirlaw",
+  "categories": [
+    "Productivity"
+  ],
+  "license": "MIT",
+  "private": true,
+  "platforms": [
+    "macOS"
+  ],
+  "commands": [
+    {
+      "name": "list-todos",
+      "title": "List Todos",
+      "subtitle": "Trello",
+      "description": "Browse the open cards on the board. Move, finish, rename or delete them.",
+      "mode": "view"
+    },
+    {
+      "name": "add-todo",
+      "title": "Add Todo",
+      "subtitle": "Trello",
+      "description": "Create a card on the board.",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "cliPath",
+      "title": "trello-todo Path",
+      "description": "Absolute path to the trello-todo command. Raycast does not load your shell profile, so PATH is not searched.",
+      "type": "textfield",
+      "required": false,
+      "default": "~/bin/trello-todo"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^2.10.1",
+    "@raycast/utils": "^2.3.3"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.2.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "eslint": "^10.14.0",
+    "prettier": "^3.9.10",
+    "typescript": "^5.9.0"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "lint": "ray lint",
+    "typecheck": "tsc --noEmit"
+  }
+}
