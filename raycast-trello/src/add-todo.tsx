@@ -37,10 +37,10 @@ export function AddTodoForm({ onAdded }: { onAdded?: () => void }) {
     pop();
   }
 
-  const { handleSubmit, itemProps } = useForm<{ title: string }>({
-    async onSubmit({ title }) {
+  const { handleSubmit, itemProps } = useForm<{ title: string; description: string }>({
+    async onSubmit({ title, description }) {
       const messages = { progress: "Adding todo", success: `Added to ${list}`, failure: "Could not add todo" };
-      if (await runWithToast(messages, () => addCard(title.trim(), list))) {
+      if (await runWithToast(messages, () => addCard(title.trim(), list, description.trim()))) {
         await leave();
       }
     },
@@ -56,7 +56,13 @@ export function AddTodoForm({ onAdded }: { onAdded?: () => void }) {
         </ActionPanel>
       }
     >
-      <Form.TextField title="Todo" placeholder="What needs doing?" autoFocus {...itemProps.title} />
+      <Form.TextField title="Title" placeholder="What needs doing?" autoFocus {...itemProps.title} />
+      <Form.TextArea
+        title="Description"
+        placeholder="Add a more detailed description…"
+        enableMarkdown
+        {...itemProps.description}
+      />
       <Form.Dropdown id="list" title="List" value={list} onChange={setList} isLoading={isLoading}>
         {(board?.lists ?? []).map((item) => (
           <Form.Dropdown.Item key={item.id} value={item.name} title={item.name} />
