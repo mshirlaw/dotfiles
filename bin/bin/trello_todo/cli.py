@@ -16,6 +16,7 @@ from .errors import TrelloTodoError
 COMMANDS = (
     ('"<title>" [list]', "create a card (default list from your settings file)"),
     ("<title words> -l <list>", "same, without quoting the title"),
+    ("<title> -d <text>", "add a description to the new card"),
     ('--add "<title>" [list]', "same as the first form"),
     ("--lists", "print list names"),
     ("--show [list]", "print open cards, optionally for one list"),
@@ -53,21 +54,24 @@ ACTIONS = ("add", "lists", "show", "move", "done", "rename", "delete")
 
 
 LIST_FLAGS = ("-l", "--list")
+DESCRIPTION_FLAGS = ("-d", "--description")
+VALUE_FLAGS = LIST_FLAGS + DESCRIPTION_FLAGS
+VALUE_FLAG_PREFIXES = ("--list=", "--description=")
 COMMAND_FLAGS = frozenset({f"--{action}" for action in ACTIONS} | {"-h", "--help", "--json"})
 
 
-def split_list_option(argv: Sequence[str]) -> tuple[list[str], list[str]]:
-    """Separate the `-l <list>` option from the other arguments."""
+def split_value_options(argv: Sequence[str]) -> tuple[list[str], list[str]]:
+    """Separate the `-l <list>` and `-d <text>` options from the other arguments."""
     rest: list[str] = []
     option: list[str] = []
     tokens = iter(argv)
     for token in tokens:
-        if token in LIST_FLAGS:
+        if token in VALUE_FLAGS:
             option.append(token)
             value = next(tokens, None)
             if value is not None:
                 option.append(value)
-        elif token.startswith("--list="):
+        elif token.startswith(VALUE_FLAG_PREFIXES):
             option.append(token)
         else:
             rest.append(token)
@@ -77,9 +81,9 @@ def split_list_option(argv: Sequence[str]) -> tuple[list[str], list[str]]:
 def normalise_argv(argv: Sequence[str]) -> list[str]:
     """Treat arguments with no command flag as `--add <title words>`.
 
-    The list option is moved to the end so it can follow or precede the title.
+    The value options are moved to the end so they can follow or precede the title.
     """
-    rest, option = split_list_option(argv)
+    rest, option = split_value_options(argv)
     if rest and not COMMAND_FLAGS.intersection(rest):
         rest = ["--add", *rest]
     return [*rest, *option]
@@ -104,6 +108,7 @@ def build_parser() -> argparse.ArgumentParser:
     group.add_argument("--rename", nargs=2, metavar="ARG", **hidden)
     group.add_argument("--delete", metavar="CARD", **hidden)
     parser.add_argument("-l", "--list", dest="list_name", metavar="LIST", **hidden)
+    parser.add_argument("-d", "--description", metavar="TEXT", **hidden)
     parser.add_argument("--json", action="store_true", **hidden)
     return parser
 
@@ -144,7 +149,7 @@ def run(
     add_request: tuple[str, str],
 ) -> str:
     if action == "add":
-        return commands.add_card(client, *add_request)
+        return commands.add_card(client, *add_request, args.description or "")
     if action == "lists":
         return commands.list_names(client)
     if action == "show" and args.json:
@@ -172,6 +177,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         parser.error("--json only applies to --show")
     if args.list_name and action != "add":
         parser.error("-l only applies when adding a card")
+    if args.description and action != "add":
+        parser.error("-d only applies when adding a card")
     try:
         settings = load_settings()
         add_request = (

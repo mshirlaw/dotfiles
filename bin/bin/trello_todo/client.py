@@ -79,8 +79,11 @@ class TrelloClient:
         )
         return [Card(id=item["id"], name=item["name"]) for item in data]
 
-    def create_card(self, list_id: str, title: str) -> Card:
-        data = self._request("POST", "cards", {"idList": list_id, "name": title})
+    def create_card(self, list_id: str, title: str, description: str = "") -> Card:
+        params = {"idList": list_id, "name": title}
+        if description:
+            params["desc"] = description
+        data = self._request("POST", "cards", params)
         return Card(id=data["id"], name=data["name"], url=data["shortUrl"])
 
     def move_card(self, card_id: str, list_id: str) -> None:
