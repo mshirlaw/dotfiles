@@ -59,13 +59,16 @@ class TrelloClient:
         data = self._request(
             "GET",
             f"boards/{self._board_id}/lists",
-            {"fields": "name", "cards": "open", "card_fields": "name"},
+            {"fields": "name", "cards": "open", "card_fields": "name,shortUrl"},
         )
         return [
             TrelloList(
                 id=item["id"],
                 name=item["name"],
-                cards=tuple(Card(id=c["id"], name=c["name"]) for c in item["cards"]),
+                cards=tuple(
+                    Card(id=c["id"], name=c["name"], url=c.get("shortUrl", ""))
+                    for c in item["cards"]
+                ),
             )
             for item in data
         ]
