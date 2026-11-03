@@ -11,9 +11,9 @@ from .lookup import find_card, find_list
 from .render import format_board
 
 
-def add_card(client: TrelloClient, title: str, list_name: str) -> str:
+def add_card(client: TrelloClient, title: str, list_name: str, description: str = "") -> str:
     target = find_list(client.get_lists(), list_name)
-    card = client.create_card(target.id, title)
+    card = client.create_card(target.id, title, description)
     return f"Created in {target.name}: {card.name}\n{card.url}"
 
 

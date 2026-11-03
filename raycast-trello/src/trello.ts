@@ -54,7 +54,12 @@ export async function fetchBoard(): Promise<Board> {
   return JSON.parse(await runCli(["--show", "--json"])) as Board;
 }
 
-export const addCard = (title: string, list: string) => runCli(["--add", title, "-l", list]);
+function descriptionArgs(description: string): string[] {
+  return description ? [`--description=${description}`] : [];
+}
+
+export const addCard = (title: string, list: string, description = "") =>
+  runCli(["--add", title, "-l", list, ...descriptionArgs(description)]);
 export const moveCard = (cardId: string, list: string) => runCli(["--move", cardId, list]);
 export const finishCard = (cardId: string) => runCli(["--done", cardId]);
 export const renameCard = (cardId: string, title: string) => runCli(["--rename", cardId, title]);

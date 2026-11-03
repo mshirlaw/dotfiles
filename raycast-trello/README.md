@@ -5,7 +5,7 @@ A private Raycast extension for the board managed by the `trello-todo` CLI (`bin
 Commands:
 
 - **List Todos**: searchable list grouped by Trello list, with In Progress, Today, This Week and Later first. Open, Mark Done (⌘↵), Start (⌘I, moves to In Progress), Move to… (⌘M), Rename (⌘E), Copy URL (⇧⌘C), Add (⌘N), Refresh (⌘R), Delete (⌃X).
-- **Add Todo**: form with a list dropdown that defaults to `default_list`.
+- **Add Todo**: form with a title, a markdown description and a list dropdown that defaults to `default_list`.
 
 The extension needs `trello-todo --show --json` and card-id arguments, so keep the CLI and the extension in step. Set the "trello-todo Path" preference if the CLI is not at `~/bin/trello-todo` (Raycast does not load your shell profile, so `PATH` is not searched).
 
